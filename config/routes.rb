@@ -7,6 +7,8 @@ EighthApp::Application.routes.draw do
   resources :sessions,   only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :courses
+
 
   root to: 'static_pages#home'
 
@@ -16,6 +18,9 @@ EighthApp::Application.routes.draw do
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
+  match '/newcourse', to: 'courses#new'
+  match '/courses', to: 'courses#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

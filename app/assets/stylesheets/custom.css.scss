@@ -3,6 +3,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$lightgreen: #cdfdd9;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
@@ -69,7 +70,7 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: lightgreen;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -95,6 +96,7 @@ footer {
     }
   }  
   small { 
+  
     float: left; 
   }
   ul {

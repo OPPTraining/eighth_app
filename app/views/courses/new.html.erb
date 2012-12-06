@@ -1,24 +1,27 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<% provide(:title, 'Create a new Course!') %>
+<h1>Create a new Course!</h1>
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+    <%= form_for(@course) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.label :Coursename %>
+      <%= f.text_field :Coursename %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.label :CourseDepartment %>
+      <%= f.text_field :CourseDepartment %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.label :CourseNumber %>
+      <%= f.text_field :CourseNumber %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.label :CourseCredits  %>
+      <%= f.radio_button 'CourseCredits', '1' %><%= f.label :status ,'1' %>
+      <%= f.radio_button 'CourseCredits', '1' %><%= f.label :status ,'2' %>
+      <%= f.radio_button 'CourseCredits', '2' %><%= f.label :status ,'3' %>
+      <%= f.radio_button 'CourseCredits', '2' %><%= f.label :status ,'4' %>
 
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Create a Class", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
