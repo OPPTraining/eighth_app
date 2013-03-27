@@ -20,6 +20,7 @@ EighthApp::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/newcourse', to: 'courses#new'
   match '/courses', to: 'courses#index'
+  match '/newcoursesection', to: 'coursesections#new'
 
 
   # The priority is based upon order of creation:
