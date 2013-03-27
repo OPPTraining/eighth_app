@@ -36,6 +36,8 @@ source 'https://rubygems.org'
   		gem 'database_cleaner', '0.7.0'
 	end
 
+# so frank can pull
+
 	group :production do
   		gem 'pg', '0.12.2'
 	end
