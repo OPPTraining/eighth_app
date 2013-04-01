@@ -23,7 +23,9 @@
 </p>
 <br />
 
-<%= link_to 'New Section', newcoursesection_path, class: "btn btn-small"%>
 <%= link_to 'Back', courses_path, class: "btn btn-small" %>
+<% if current_user?(:admin => true) %>
+<%= link_to 'New Section', newcoursesection_path, class: "btn btn-small"%>
 <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-small btn-success"%>
 <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
+<% end %>
