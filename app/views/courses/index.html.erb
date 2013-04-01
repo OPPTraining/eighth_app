@@ -15,7 +15,7 @@
     <td><%= course.coursedescription %></td>
     <td><%= link_to 'More Information', course, class: "btn btn-small" %></td>
     <td>
-    <% if current_user?(:admin => true) %>
+    <% if current_user.admin? %>
       <%= link_to 'Edit', edit_course_path(course), class: "btn btn-small btn-success" %></td>
     <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
     <% end %>
@@ -24,6 +24,6 @@
 </table>
 
 <br />
-<% if current_user?(:admin => true) %>
+<% if current_user.admin? %>
 <%= link_to 'Add New Course', new_course_path, class: "btn btn-small btn-primary" %>
 <% end %>
