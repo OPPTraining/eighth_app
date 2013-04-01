@@ -1,0 +1,2 @@
+module ExternaltrainingsHelper
+end
