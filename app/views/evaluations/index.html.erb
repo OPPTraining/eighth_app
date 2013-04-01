@@ -1,0 +1,45 @@
+<h1>Listing evaluations</h1>
+
+<table>
+  <tr>
+    <th>Useremail</th>
+    <th>Courseid</th>
+    <th>Q1</th>
+    <th>Q2</th>
+    <th>Q3</th>
+    <th>Q4</th>
+    <th>Q5</th>
+    <th>Q6</th>
+    <th>Q7</th>
+    <th>Q8</th>
+    <th>Q9</th>
+    <th>Q10</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @evaluations.each do |evaluation| %>
+  <tr>
+    <td><%= evaluation.useremail %></td>
+    <td><%= evaluation.courseid %></td>
+    <td><%= evaluation.Q1 %></td>
+    <td><%= evaluation.Q2 %></td>
+    <td><%= evaluation.Q3 %></td>
+    <td><%= evaluation.Q4 %></td>
+    <td><%= evaluation.Q5 %></td>
+    <td><%= evaluation.Q6 %></td>
+    <td><%= evaluation.Q7 %></td>
+    <td><%= evaluation.Q8 %></td>
+    <td><%= evaluation.Q9 %></td>
+    <td><%= evaluation.Q10 %></td>
+    <td><%= link_to 'Show', evaluation %></td>
+    <td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
+    <td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Evaluation', new_evaluation_path %>
