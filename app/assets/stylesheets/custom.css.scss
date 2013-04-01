@@ -4,6 +4,7 @@
 
 $grayMediumLight: #eaeaea;
 $lightgreen: #cdfdd9;
+$orange: #ff6c00;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
@@ -70,7 +71,7 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: lightgreen;
+  color: orange;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;

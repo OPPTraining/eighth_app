@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401171457) do
+ActiveRecord::Schema.define(:version => 20130401172637) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "coursesectionid"
@@ -38,6 +38,23 @@ ActiveRecord::Schema.define(:version => 20130401171457) do
   end
 
   add_index "coursesections", ["course_id", "created_at"], :name => "index_coursesections_on_course_id_and_created_at"
+
+  create_table "evaluations", :force => true do |t|
+    t.string   "useremail"
+    t.integer  "courseid"
+    t.integer  "Q1"
+    t.integer  "Q2"
+    t.integer  "Q3"
+    t.integer  "Q4"
+    t.integer  "Q5"
+    t.integer  "Q6"
+    t.text     "Q7"
+    t.text     "Q8"
+    t.text     "Q9"
+    t.text     "Q10"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"

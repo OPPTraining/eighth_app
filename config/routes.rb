@@ -1,4 +1,7 @@
 EighthApp::Application.routes.draw do
+  resources :evaluations
+
+
   resources :users do
     member do
       get :following, :followers
