@@ -12,6 +12,7 @@
 class Course < ActiveRecord::Base
   attr_accessible :coursedescription, :coursename
   has_many :coursesections, dependent: :destroy
+  has_many :evaluations
 
 
 end

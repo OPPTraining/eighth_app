@@ -15,7 +15,7 @@ EighthApp::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :courses
   resources :coursesections
-
+  resources :evaluations
 
   root to: 'static_pages#home'
 
@@ -28,6 +28,7 @@ EighthApp::Application.routes.draw do
   match '/newcourse', to: 'courses#new'
   match '/courses', to: 'courses#index'
   match '/newcoursesection', to: 'coursesections#new'
+  match '/newevaluation', to: 'evaluations#new'
 
 
   # The priority is based upon order of creation:
