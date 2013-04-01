@@ -1,6 +1,6 @@
 <h1>List of Courses</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Course Name</th>
     <th>Course Description</th>
@@ -14,11 +14,8 @@
     <td><%= course.coursename %></td>
     <td><%= course.coursedescription %></td>
     <td><%= link_to 'More Information', course, class: "btn btn-small" %></td>
-    <td> | <%= link_to 'Edit', edit_course_path(course), class: "btn btn-small btn-success" %> | </td>
+    <td><%= link_to 'Edit', edit_course_path(course), class: "btn btn-small btn-success" %></td>
     <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
-  </tr>
-  <tr>
-    <td></td>
   </tr>
 <% end %>
 </table>

@@ -12,12 +12,12 @@
   <% end %>
 
     <div class="field">
-      <%= f.label :title, "Course Name" %><br />
-      <%= f.text_field :coursename %>
+      <%= f.label :title, "Course Name" %>
+      <%= f.text_field :coursename, class: "input-xlarge" %>
     </div>
     <div class="field">
-      <%= f.label :title, "Course Description" %><br />
-      <%= f.text_area :coursedescription %>
+      <%= f.label :title, "Course Description" %>
+      <%= f.text_area :coursedescription, :rows => "4", class: "input-xlarge" %>
     </div>
       <div class="field">
       <%= f.file_field :resource %>
