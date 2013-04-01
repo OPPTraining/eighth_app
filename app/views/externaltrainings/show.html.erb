@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @externaltraining.title %>
+</p>
+
+<p>
+  <b>Facilitator:</b>
+  <%= @externaltraining.facilitator %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @externaltraining.date %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @externaltraining.duration %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @externaltraining.description %>
+</p>
+
+<p>
+  <b>Supervisorapproval:</b>
+  <%= @externaltraining.supervisorapproval %>
+</p>
+
+
+<%= link_to 'Edit', edit_externaltraining_path(@externaltraining) %> |
+<%= link_to 'Back', externaltrainings_path %>

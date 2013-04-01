@@ -1,0 +1,41 @@
+<%= form_for(@externaltraining) do |f| %>
+  <% if @externaltraining.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@externaltraining.errors.count, "error") %> prohibited this externaltraining from being saved:</h2>
+
+      <ul>
+      <% @externaltraining.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :facilitator %><br />
+    <%= f.text_field :facilitator %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br />
+    <%= f.number_field :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :supervisorapproval %><br />
+    <%= f.check_box :supervisorapproval %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

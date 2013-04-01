@@ -1,4 +1,7 @@
 EighthApp::Application.routes.draw do
+  resources :externaltrainings
+
+
   resources :evaluations
 
 
