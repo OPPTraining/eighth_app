@@ -11,3 +11,7 @@ class CreateCoursesections < ActiveRecord::Migration
     add_index :coursesections, [:course_id, :created_at]
   end
 end
+
+
+
+

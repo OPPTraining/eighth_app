@@ -1,4 +1,10 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, "courses" %>
+<% provide(:title, @course.coursename) %>
+
+<p>
+  <b>Courseid:</b>
+  <%= @course.id %>
+</p>
 
 <p>
   <b>Coursename:</b>
@@ -9,7 +15,6 @@
   <b>Coursedescription:</b>
   <%= @course.coursedescription %>
 </p>
-
 
 <%= link_to 'New Section', newcoursesection_path %>
 <%= link_to 'Edit', edit_course_path(@course) %> |

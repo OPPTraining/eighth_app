@@ -30,10 +30,8 @@ class CoursesectionsController < ApplicationController
     @coursesection = Coursesection.find(params[:id])
   end
 
-  # POST /courses
-  # POST /courses.json
   def create
-    @coursesection = Coursesection.new(params[:course])
+    @coursesection = Coursesection.new(params[:coursesection])
 
     respond_to do |format|
       if @coursesection.save
@@ -46,13 +44,11 @@ class CoursesectionsController < ApplicationController
     end
   end
 
-  # PUT /courses/1
-  # PUT /courses/1.json
   def update
     @course = Coursesection.find(params[:id])
 
     respond_to do |format|
-      if @course.update_attributes(params[:course])
+      if @course.update_attributes(params[:coursesection])
         format.html { redirect_to @coursesection, notice: 'Course Section was successfully updated.' }
         format.json { head :no_content }
       else

@@ -1,5 +1,18 @@
+# == Schema Information
+#
+# Table name: coursesections
+#
+#  id                :integer          not null, primary key
+#  course_id         :integer
+#  coursesectiondate :datetime
+#  location          :string(255)
+#  duration          :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
 class Coursesection < ActiveRecord::Base
-  attr_accessible :course_id, :coursesectiondate, :duration, :location
+  attr_accessible :coursesectiondate, :duration, :location
   belongs_to :course
 
   validates :course_id, presence: true
