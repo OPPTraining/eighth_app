@@ -23,14 +23,9 @@
 </p>
 <br />
 
-<<<<<<< HEAD
-<%= link_to 'New Section', newcoursesection_path, class: "btn btn-small"%>
 <%= link_to 'Back', courses_path, class: "btn btn-small" %>
+<%= link_to 'Evaluate', newevaluation_path, class: "btn btn-small" %>
+<%= link_to 'New Section', newcoursesection_path, class: "btn btn-small"%>
 <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-small btn-success"%>
 <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
-=======
-<%= link_to 'Evaluate', newevaluation_path %>
-<%= link_to 'New Section', newcoursesection_path %>
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
->>>>>>> f42fdef09c9b7680e63c6175629cc5c54782a420
+
