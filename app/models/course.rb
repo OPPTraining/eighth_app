@@ -10,8 +10,10 @@
 #
 
 class Course < ActiveRecord::Base
-  attr_accessible :coursedescription, :coursename
+  attr_accessible :coursedescription, :coursename, :resource
   has_many :coursesections, dependent: :destroy
 
+  mount_uploader :resource, ResourceuploadUploader
+  
 
 end

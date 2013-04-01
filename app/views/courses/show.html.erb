@@ -1,21 +1,29 @@
 <% content_for :title, "courses" %>
 <% provide(:title, @course.coursename) %>
 
+
+<p>
+	<h2>
+  <b><%= @course.coursename %></b>
+</h2>
+</p>
+
 <p>
   <b>Courseid:</b>
   <%= @course.id %>
 </p>
 
 <p>
-  <b>Coursename:</b>
-  <%= @course.coursename %>
-</p>
-
-<p>
-  <b>Coursedescription:</b>
+  <b>Coursedescription:</b><br />
   <%= @course.coursedescription %>
 </p>
 
-<%= link_to 'New Section', newcoursesection_path %>
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<p>
+	<%= link_to 'Attached File', @course.resource_url.to_s, class: "btn btn-warning" %>
+</p>
+<br />
+
+<%= link_to 'New Section', newcoursesection_path, class: "btn btn-small"%>
+<%= link_to 'Back', courses_path, class: "btn btn-small" %>
+<%= link_to 'Edit', edit_course_path(@course), class: "btn btn-small btn-success"%>
+<%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
