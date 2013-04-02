@@ -30,7 +30,7 @@
 <br />
 ---------------------------------------------------
 <br />
-<%= link_to 'Attendance', attendance_path(@course), class: "btn btn-small"%>
+<%= link_to 'Attendance', attendance_path, class: "btn btn-small"%>
 <%= link_to 'New Section', newcoursesection_path, class: "btn btn-small"%>
 <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-small btn-success"%>
 <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
