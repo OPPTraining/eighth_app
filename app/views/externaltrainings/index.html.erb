@@ -20,7 +20,10 @@
     <td><%= externaltraining.facilitator %></td>
     <td><%= externaltraining.description %></td>
     <% if current_user.admin? %>
-    <td><%= externaltraining.supervisorapproval %></td>
+    <td>
+        <% if externaltraining.supervisorapproval? %> <i class="icon-ok"></i> <% end %>
+        <% if not externaltraining.supervisorapproval? %> <i class="icon-remove icon-red"></i> <% end %>
+    </td>
     <% end %>
     <td><%= link_to 'More Information', externaltraining, class: "btn btn-small"  %></td>
     <% if current_user.admin? %>
