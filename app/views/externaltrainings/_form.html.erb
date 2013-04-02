@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :date %>
-    <%= f.datetime_select :date, class: "span2" %>
+    <%= f.datetime_select :date, :prompt => {:day => 'Choose day', :month => 'Choose month', :year => 'Choose year'}, :order => [:month, :day, :year], :ampm => true, class: "inline"%>
   </div>
   <div class="field">
     <%= f.label :duration %>
