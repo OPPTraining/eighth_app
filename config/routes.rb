@@ -27,6 +27,7 @@ EighthApp::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/newcourse', to: 'courses#new'
   match '/courses', to: 'courses#index'
+  match '/externaltrainings', to: 'externaltrainings#index'
   match '/newcoursesection', to: 'coursesections#new'
   match '/newevaluation', to: 'evaluations#new'
 

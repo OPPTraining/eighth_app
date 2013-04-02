@@ -1,13 +1,10 @@
-<h1>Listing externaltrainings</h1>
+<h1>List of External Trainings</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Title</th>
     <th>Facilitator</th>
-    <th>Date</th>
-    <th>Duration</th>
     <th>Description</th>
-    <th>Supervisorapproval</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,17 +14,16 @@
   <tr>
     <td><%= externaltraining.title %></td>
     <td><%= externaltraining.facilitator %></td>
-    <td><%= externaltraining.date %></td>
-    <td><%= externaltraining.duration %></td>
     <td><%= externaltraining.description %></td>
-    <td><%= externaltraining.supervisorapproval %></td>
-    <td><%= link_to 'Show', externaltraining %></td>
-    <td><%= link_to 'Edit', edit_externaltraining_path(externaltraining) %></td>
-    <td><%= link_to 'Destroy', externaltraining, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'More Information', externaltraining, class: "btn btn-small"  %></td>
+    <% if current_user.admin? %>
+        <td><%= link_to 'Edit', edit_externaltraining_path(externaltraining), class: "btn btn-small btn-success" %></td>
+    <td><%= link_to 'Destroy', externaltraining, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Externaltraining', new_externaltraining_path %>
+<%= link_to 'New Externaltraining', new_externaltraining_path, class: "btn btn-small btn-primary" %>
