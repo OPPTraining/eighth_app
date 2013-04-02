@@ -1,4 +1,4 @@
-<%= form_for(@externaltraining) do |f| %>
+<%= form_for @externaltraining, :html => {:multipart => true} do |f| %>
   <% if @externaltraining.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@externaltraining.errors.count, "error") %> prohibited this externaltraining from being saved:</h2>
@@ -30,6 +30,9 @@
   <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description, :rows => "4", class: "input-xlarge" %>
+  </div>
+  <div class="field">
+      <%= f.file_field :externalresource %>
   </div>
   <% if current_user.admin? %>
   <div class="field">
