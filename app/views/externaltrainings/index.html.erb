@@ -5,25 +5,33 @@
     <th>Title</th>
     <th>Facilitator</th>
     <th>Description</th>
+    <% if current_user.admin? %>
+    <th>Approved?</th>
+    <% end %>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @externaltrainings.each do |externaltraining| %>
+<% if externaltraining.supervisorapproval? or current_user.admin? %>
   <tr>
     <td><%= externaltraining.title %></td>
     <td><%= externaltraining.facilitator %></td>
     <td><%= externaltraining.description %></td>
+    <% if current_user.admin? %>
+    <td><%= externaltraining.supervisorapproval %></td>
+    <% end %>
     <td><%= link_to 'More Information', externaltraining, class: "btn btn-small"  %></td>
     <% if current_user.admin? %>
         <td><%= link_to 'Edit', edit_externaltraining_path(externaltraining), class: "btn btn-small btn-success" %></td>
     <td><%= link_to 'Destroy', externaltraining, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
     <% end %>
   </tr>
+  <% end %>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Externaltraining', new_externaltraining_path, class: "btn btn-small btn-primary" %>
+<%= link_to 'Add External Training', new_externaltraining_path, class: "btn btn-small btn-primary" %>
