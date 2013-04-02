@@ -11,8 +11,12 @@
         <%= render 'shared/micropost_form' %>
       </section>
       <section>
-        <%= link_to "Create a new course", newcourse_path, 
+        <%= link_to "Create New External Training", externaltrainings_path, class: "btn btn-large btn-primary" %>
+        <br> <br>
+        <% if current_user.admin? %>
+        <%= link_to "Create New Internal Course", newcourse_path, 
                                 class: "btn btn-large btn-primary" %>
+        <% end %>
         <br>
       <section>
     </aside>

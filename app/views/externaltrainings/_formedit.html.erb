@@ -1,0 +1,46 @@
+<%= form_for @externaltraining, :html => {:multipart => true} do |f| %>
+  <% if @externaltraining.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@externaltraining.errors.count, "error") %> prohibited this externaltraining from being saved:</h2>
+
+      <ul>
+      <% @externaltraining.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "input-xlarge" %>
+  </div>
+  <div class="field">
+    <%= f.label :facilitator %>
+    <%= f.text_field :facilitator, class: "input-xlarge" %>
+  </div>
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.datetime_select :date, class: "span2" %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %>
+    <%= f.number_field :duration, class: "input-mini" %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => "4", class: "input-xlarge" %>
+  </div>
+  <div class="field">
+      <%= f.file_field :externalresource %>
+  </div>
+  <% if current_user.admin? %>
+  <div class="field">
+    <%= f.label :title, "Supervisor Approval" %>
+    <%= f.check_box :supervisorapproval, class: "checkbox"%>
+  </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit 'Update External Training', :class => 'btn btn-large btn-success' %>
+  </div>
+<% end %>

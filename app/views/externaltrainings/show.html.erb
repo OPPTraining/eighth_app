@@ -26,10 +26,16 @@
 </p>
 
 <p>
+  <%= link_to 'Attached File', @externaltraining.externalresource_url.to_s, class: "btn btn-warning" %>
+</p>
+
+<p>
   <b>Supervisorapproval:</b>
   <%= @externaltraining.supervisorapproval %>
 </p>
 
-
-<%= link_to 'Edit', edit_externaltraining_path(@externaltraining) %> |
-<%= link_to 'Back', externaltrainings_path %>
+<%= link_to 'Back', externaltrainings_path, class: "btn btn-small" %>
+<% if current_user.admin? %>
+<%= link_to 'Edit', edit_externaltraining_path(@externaltraining), class: "btn btn-small btn-success" %>
+<%= link_to 'Destroy', @externaltraining, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
+<% end %>

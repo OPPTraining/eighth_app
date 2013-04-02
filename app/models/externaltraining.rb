@@ -14,5 +14,7 @@
 #
 
 class Externaltraining < ActiveRecord::Base
-  attr_accessible :date, :description, :duration, :facilitator, :supervisorapproval, :title
+  attr_accessible :date, :description, :duration, :facilitator, :supervisorapproval, :title, :externalresource
+
+  mount_uploader :externalresource, ExternalresourceUploader
 end
