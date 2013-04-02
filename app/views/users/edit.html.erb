@@ -1,5 +1,5 @@
 <% provide(:title, "Edit user") %> 
-<h1>Update your profile</h1>
+<h1>Change your Password</h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -7,21 +7,19 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :disabled => true %>
 
       <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, :disabled => true %>
 
-      <%= f.label :password %>
+      <%= f.label :password, "Enter New Password" %>
       <%= f.password_field :password %>
 
-      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.label :password_confirmation, "Confirm New Password" %>
       <%= f.password_field :password_confirmation %>
 
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
 
-    <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">change</a>
   </div>
 </div>
