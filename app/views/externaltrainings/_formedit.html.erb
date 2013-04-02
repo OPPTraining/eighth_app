@@ -19,12 +19,12 @@
     <%= f.label :facilitator %>
     <%= f.text_field :facilitator, class: "input-xlarge" %>
   </div>
+  <table class="field">
+    <td><%= f.label :date, "Date & Time" %>
+    <%= f.datetime_select :date, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true %></td>
+  </table>
   <div class="field">
-    <%= f.label :date %>
-    <%= f.datetime_select :date, class: "span2" %>
-  </div>
-  <div class="field">
-    <%= f.label :duration %>
+    <%= f.label :duration, "Duration (in hours)" %>
     <%= f.number_field :duration, class: "input-mini" %>
   </div>
   <div class="field">
