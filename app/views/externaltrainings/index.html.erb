@@ -29,6 +29,8 @@
     <% if current_user.admin? %>
         <td><%= link_to 'Edit', edit_externaltraining_path(externaltraining), class: "btn btn-small btn-success" %></td>
     <td><%= link_to 'Destroy', externaltraining, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
+    <% else %>
+    <td></td><td></td>
     <% end %>
   </tr>
   <% end %>

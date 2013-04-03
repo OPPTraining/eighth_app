@@ -1,10 +1,39 @@
-<% provide(:title, "Edit user") %> 
+<% provide(:title, "Edit user") %>
+<% if not current_user.admin? %>
 <h1>Change your Password</h1>
+<% end %>
+<% if current_user.admin? %>
+<h1>Edit User Information</h1>
+<% end %>
 
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
+
+      <% if current_user.admin? && !current_user?(@user) %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <% elsif current_user.admin? && current_user?(@user) %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Enter New Password" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirm New Password" %>
+      <%= f.password_field :password_confirmation %>
+
+      <% elsif not current_user.admin? %>
 
       <%= f.label :name %>
       <%= f.text_field :name, :disabled => true %>
@@ -18,7 +47,9 @@
       <%= f.label :password_confirmation, "Confirm New Password" %>
       <%= f.password_field :password_confirmation %>
 
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <% end %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
     <% end %>
 
   </div>
