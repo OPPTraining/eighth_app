@@ -11,6 +11,7 @@
 #  supervisorapproval :boolean
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  externalresource   :string(255)
 #
 
 class Externaltraining < ActiveRecord::Base

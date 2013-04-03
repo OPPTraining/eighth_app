@@ -23,16 +23,7 @@
     <%= f.label :Q1 %>
     <%= f.label "How would you rate this training?" %> 
     <div class="radios inline">
-    <%= radio_button_tag(:Q1, 1) %>
-    <%= label_tag(:Q1_1, "1") %>
-    <%= radio_button_tag(:Q1, 2) %>
-    <%= label_tag(:Q1_2, "2") %>
-    <%= radio_button_tag(:Q1, 3) %>
-    <%= label_tag(:Q1_3, "3") %>
-    <%= radio_button_tag(:Q1, 4) %>
-    <%= label_tag(:Q1_4, "4") %>
-    <%= radio_button_tag(:Q1, 5) %>
-    <%= label_tag(:Q1_5, "5") %><br />
+    <%= f.select :Q1 ['1','2','3','4','5'] %>
     </div>
   </div>
   <div class="field">
