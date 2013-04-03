@@ -5,7 +5,7 @@
     <th>Title</th>
     <th>Facilitator</th>
     <th>Description</th>
-    <% if current_user.admin? %>
+    <% if current_user.admin? or current_user.supervisor? %>
     <th>Approved?</th>
     <% end %>
     <th></th>
@@ -14,19 +14,19 @@
   </tr>
 
 <% @externaltrainings.each do |externaltraining| %>
-<% if externaltraining.supervisorapproval? or current_user.admin? %>
+<% if externaltraining.supervisorapproval? or current_user.admin? or current_user.supervisor? %>
   <tr>
     <td><%= externaltraining.title %></td>
     <td><%= externaltraining.facilitator %></td>
     <td><%= externaltraining.description %></td>
-    <% if current_user.admin? %>
+    <% if current_user.admin? or current_user.supervisor? %>
     <td>
         <% if externaltraining.supervisorapproval? %> <i class="icon-ok"></i> <% end %>
         <% if not externaltraining.supervisorapproval? %> <i class="icon-remove icon-red"></i> <% end %>
     </td>
     <% end %>
     <td><%= link_to 'More Information', externaltraining, class: "btn btn-small"  %></td>
-    <% if current_user.admin? %>
+    <% if current_user.admin? or current_user.supervisor? %>
         <td><%= link_to 'Edit', edit_externaltraining_path(externaltraining), class: "btn btn-small btn-success" %></td>
     <td><%= link_to 'Destroy', externaltraining, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
     <% else %>

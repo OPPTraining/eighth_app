@@ -29,7 +29,7 @@
   <%= link_to 'Attached File', @externaltraining.externalresource_url.to_s, class: "btn btn-warning" %>
 </p>
 
-<% if current_user.admin? %>
+<% if current_user.admin? or current_user.supervisor? %>
 <p>
   <b>Supervisor Approval:</b>
   <%= @externaltraining.supervisorapproval %>
@@ -37,7 +37,7 @@
 <% end %>
 
 <%= link_to 'Back', externaltrainings_path, class: "btn btn-small" %>
-<% if current_user.admin? %>
+<% if current_user.admin? or current_user.supervisor? %>
 <%= link_to 'Edit', edit_externaltraining_path(@externaltraining), class: "btn btn-small btn-success" %>
 <%= link_to 'Destroy', @externaltraining, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
 <% end %>

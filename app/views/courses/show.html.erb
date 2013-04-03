@@ -26,12 +26,13 @@
 <%= link_to 'Back', courses_path, class: "btn btn-small" %>
 <%= link_to 'Evaluate', newevaluation_path, class: "btn btn-small" %>
 
-<% if current_user.admin? %>
+<% if current_user.admin? or current_user.supervisor? %>
 <br />
----------------------------------------------------
 <br />
 <%= link_to 'Attendance', attendance_path, class: "btn btn-small"%>
 <%= link_to 'New Section', newcoursesection_path, class: "btn btn-small"%>
+<% end %>
+<% if current_user.admin? %>
 <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-small btn-success"%>
 <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
 <% end %>

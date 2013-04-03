@@ -1,8 +1,8 @@
 <% provide(:title, "Edit user") %>
-<% if not current_user.admin? %>
+<% if  !current_user.admin? && !current_user.supervisor? %>
 <h1>Change your Password</h1>
 <% end %>
-<% if current_user.admin? %>
+<% if current_user.admin? or current_user.supervisor? %>
 <h1>Edit User Information</h1>
 <% end %>
 
@@ -35,6 +35,22 @@
       <%= f.check_box :inactive %>
       <br />
       <br />
+
+      <% elsif current_user.supervisor? %>
+      
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Enter New Password" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirm New Password" %>
+      <%= f.password_field :password_confirmation %>
+      <br />
+      <br />  
 
       <% elsif not current_user.admin? %>
 

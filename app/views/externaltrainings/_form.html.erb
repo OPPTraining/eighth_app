@@ -40,7 +40,7 @@
   <div class="field">
       <%= f.file_field :externalresource %>
   </div>
-  <% if current_user.admin? %>
+  <% if current_user.admin? or current_user.supervisor? %>
   <div class="field">
     <%= f.label :title, "Supervisor Approval" %>
     <%= f.check_box :supervisorapproval, class: "checkbox"%>
