@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130402001921) do
+ActiveRecord::Schema.define(:version => 20130403192816) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "coursesectionid"
@@ -121,6 +121,8 @@ ActiveRecord::Schema.define(:version => 20130402001921) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "avatar"
+    t.boolean  "supervisor",          :default => false
+    t.boolean  "inactive",            :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
