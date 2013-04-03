@@ -1,16 +1,14 @@
 <% if current_user.admin? %>
 <% if !user.inactive? %>
-	<li>
-	  <%= gravatar_for user, size: 52 %>
-	  <%= link_to user.name, user %>
+	<tr>
+	  <td><h5><%= link_to user.name, user %></h5><td>
 	  
-	  <br/>
 	  <% if current_user.admin? && !current_user?(user) %>
-	    | <%= link_to "edit", edit_user_path(user), class: "btn btn-mini btn-success" %>
+	    <td><%= link_to "edit", edit_user_path(user), class: "btn btn-small btn-success" %></td>
 
 	  <% elsif current_user.admin? && current_user?(user) %>
-	    | <%= link_to "edit", edit_user_path(user), class: "btn btn-mini btn-success" %>
+	    <td><%= link_to "edit", edit_user_path(user), class: "btn btn-small btn-success" %></td>
 	  <% end %>
-	</li>
+	</tr>
 <% end %>
 <% end %>

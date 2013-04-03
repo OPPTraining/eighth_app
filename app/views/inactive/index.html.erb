@@ -1,21 +1,24 @@
 <% if current_user.admin? %>
 <% provide(:title, 'Inactive users') %>
 <h1>Inactive users</h1>
+<div class="row">
 
 
 
-
-
-<ul class="users">
+<div class="span6 offset3">
+<table class="table table-striped">
   <%= render 'userinactive' %>
-</ul>
+</table>
+</div>
 
 <br/>
+<div class="span6 offset3">
 <p><%= link_to "View Active Users", users_path, class: "btn btn-warning" %></p>
 <% end %>
-
+</div>
 
 <% if not current_user.admin? %>
 	<h3>Administrator Access is required</h3>
 
 <% end %>
+</div>

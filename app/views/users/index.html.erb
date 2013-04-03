@@ -1,28 +1,35 @@
 <% if current_user.admin? %>
 <% provide(:title, 'Active users') %>
 <h1>Active users</h1>
+<div class="row">
+	<div class="span6 offset3">
+		<p><%= link_to "Add New User", signup_path, class: "btn btn-primary" %></p>
+	</div>
+	</br>
 
-<p><%= link_to "Add New User", signup_path, class: "btn btn-primary" %></p>
+	<% form_tag users_path, :method => 'get' do %>
+  		<p>
+    	<%= text_field_tag :search, params[:search] %>
+    	<%= submit_tag "Search", :name => nil %>
+  		</p>
+	<% end %>
 
+	<%= will_paginate %>
 
-<% form_tag users_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+	<div class="span6 offset3">
+		<table class="table table-striped">
+  			<%= render @users %>
+		</table>
+	</div>
 
-<%= will_paginate %>
+	<%= will_paginate %>
 
-<ul class="users">
-  <%= render @users %>
-</ul>
-
-<%= will_paginate %>
-<br/>
-<p><%= link_to "View Inactive Users", '/inactive', class: "btn btn-warning" %></p>
-<% end %>
-
+	<br/>
+	<div class ="span6 offset3">
+		<p><%= link_to "View Inactive Users", '/inactive', class: "btn btn-warning" %></p>
+	</div>
+	<% end %>
+</div>
 
 <% if not current_user.admin? %>
 	<h3>Administrator Access is required</h3>

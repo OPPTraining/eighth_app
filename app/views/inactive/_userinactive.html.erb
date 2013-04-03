@@ -2,21 +2,19 @@
 <% @users.each do |user| %>
 <% if user.inactive? %>
 
-	<li>
-	  <%= gravatar_for user, size: 52 %>
-	  <%= link_to user.name, user %>
+	<tr>
+	  <td><h5><%= link_to user.name, user %></h5></td>
 	  
-	  <br/>
 	  <% if current_user.admin? && !current_user?(user) %>
-	    | <%= link_to "delete", user, method: :delete,
-	                                  data: { confirm: "You sure?" }, class: "btn btn-mini btn-danger" %>
-	    | <%= link_to "edit", edit_user_path(user), class: "btn btn-mini btn-success" %>
+	   <td><%= link_to "delete", user, method: :delete,
+	                                  data: { confirm: "You sure?" }, class: "btn btn-small btn-danger" %></td>
+	   <td><%= link_to "edit", edit_user_path(user), class: "btn btn-small btn-success" %></td>
 
 	  <% elsif current_user.admin? && current_user?(user) %>
-	  	| <%= link_to "delete", users_path, data: { confirm: "Cannot delete currently signed-in user" }, class: "btn btn-mini btn-danger disabled" %>
-	    | <%= link_to "edit", edit_user_path(user), class: "btn btn-mini btn-success" %>
+	   <td><%= link_to "delete", users_path, data: { confirm: "Cannot delete currently signed-in user" }, class: "btn btn-small btn-danger disabled" %> </td>
+	   <td><%= link_to "edit", edit_user_path(user), class: "btn btn-small btn-success" %></td>
 	  <% end %>
-	</li>
+	</tr>
 <% end %>
 <% end %>
 <% end %>

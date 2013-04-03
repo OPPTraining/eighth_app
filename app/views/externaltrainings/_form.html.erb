@@ -1,3 +1,4 @@
+<div class="row">
 <%= form_for @externaltraining, :html => {:multipart => true} do |f| %>
   <% if @externaltraining.errors.any? %>
     <div id="error_explanation">
@@ -10,21 +11,21 @@
       </ul>
     </div>
   <% end %>
-
+<div class="span6 offset3">
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title, class: "input-xlarge" %>
+    <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :facilitator %>
-    <%= f.text_field :facilitator, class: "input-xlarge" %>
+    <%= f.text_field :facilitator %>
   </div>
 
 
-  <table class="field">
-    <td><%= f.label :date, "Date & Time" %>
-    <%= f.datetime_select :date, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true %></td>
-  </table>
+  <div class="field">
+    <%= f.label :date, "Date & Time" %>
+    <%= f.datetime_select :date, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true %>
+  </div>
 
 
 
@@ -34,7 +35,7 @@
   </div>
   <div class="field">
     <%= f.label :description %>
-    <%= f.text_area :description, :rows => "4", class: "input-xlarge" %>
+    <%= f.text_area :description, :rows => "4" %>
   </div>
   <div class="field">
       <%= f.file_field :externalresource %>
@@ -47,5 +48,8 @@
   <% end %>
   <div class="actions">
     <%= f.submit 'Add External Training', :class => 'btn btn-large btn-primary' %>
+    <%= link_to 'Back', externaltrainings_path, class: "btn btn-large" %>
   </div>
+</div>
 <% end %>
+</div>
