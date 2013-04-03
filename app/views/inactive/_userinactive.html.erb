@@ -1,0 +1,22 @@
+<% if current_user.admin? %>
+<% @users.each do |user| %>
+<% if user.inactive? %>
+
+	<li>
+	  <%= gravatar_for user, size: 52 %>
+	  <%= link_to user.name, user %>
+	  
+	  <br/>
+	  <% if current_user.admin? && !current_user?(user) %>
+	    | <%= link_to "delete", user, method: :delete,
+	                                  data: { confirm: "You sure?" }, class: "btn btn-mini btn-danger" %>
+	    | <%= link_to "edit", edit_user_path(user), class: "btn btn-mini btn-success" %>
+
+	  <% elsif current_user.admin? && current_user?(user) %>
+	  	| <%= link_to "delete", users_path, data: { confirm: "Cannot delete currently signed-in user" }, class: "btn btn-mini btn-danger disabled" %>
+	    | <%= link_to "edit", edit_user_path(user), class: "btn btn-mini btn-success" %>
+	  <% end %>
+	</li>
+<% end %>
+<% end %>
+<% end %>

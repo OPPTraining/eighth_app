@@ -17,6 +17,7 @@ EighthApp::Application.routes.draw do
   resources :coursesections
   resources :evaluations
   resources :attendances
+  resources :inactive
 
   root to: 'static_pages#home'
 
@@ -32,6 +33,7 @@ EighthApp::Application.routes.draw do
   match '/newcoursesection', to: 'coursesections#new'
   match '/newevaluation', to: 'evaluations#new'
   match '/attendance', to: 'attendances#index'
+  match '/inactive', to: 'inactive#index'
 
 
   # The priority is based upon order of creation:

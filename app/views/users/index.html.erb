@@ -1,6 +1,6 @@
 <% if current_user.admin? %>
-<% provide(:title, 'All users') %>
-<h1>All users</h1>
+<% provide(:title, 'Active users') %>
+<h1>Active users</h1>
 
 <p><%= link_to "Add New User", signup_path, class: "btn btn-primary" %></p>
 
@@ -19,6 +19,8 @@
 </ul>
 
 <%= will_paginate %>
+<br/>
+<p><%= link_to "View Inactive Users", '/inactive', class: "btn btn-warning" %></p>
 <% end %>
 
 

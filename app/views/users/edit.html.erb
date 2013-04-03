@@ -11,7 +11,7 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <% if current_user.admin? && !current_user?(@user) %>
+      <% if current_user.admin? %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -19,19 +19,22 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
 
-      <% elsif current_user.admin? && current_user?(@user) %>
+      <%= f.label :supervisor, "Supervisor" %>
+      <%= f.check_box :supervisor %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.label :admin, "Administrator" %>
+      <%= f.check_box :admin %>
 
       <%= f.label :password, "Enter New Password" %>
       <%= f.password_field :password %>
 
       <%= f.label :password_confirmation, "Confirm New Password" %>
       <%= f.password_field :password_confirmation %>
+
+      <%= f.label :inactive, "Inactivate User" %>
+      <%= f.check_box :inactive %>
+      <br />
+      <br />
 
       <% elsif not current_user.admin? %>
 
