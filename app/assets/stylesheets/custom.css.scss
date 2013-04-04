@@ -1,5 +1,13 @@
 @import "bootstrap";
 
+/*.navbar { 
+.navbar-inner {
+  background-color: #4e7ac7;
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+}
+}*/
 
 /* mixins, variables, etc. */
 
@@ -39,6 +47,8 @@ textarea {
   }
 }
 
+
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -70,13 +80,13 @@ p {
 /* header */
 
 #logo {
-  float: left;
+  
   margin-right: 10px;
+  margin-left: 7px;
   font-size: 1.7em;
   color: orange;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
@@ -84,6 +94,8 @@ p {
     text-decoration: none;
   }
 }
+
+
 
 /* footer */
 
