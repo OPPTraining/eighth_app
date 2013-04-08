@@ -27,6 +27,7 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new.json
   def new
     @evaluation = Evaluation.new
+    @evaluation.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +44,7 @@ class EvaluationsController < ApplicationController
   # POST /evaluations.json
   def create
     @evaluation = Evaluation.new(params[:evaluation])
+    @evaluation.user_id = current_user.id
 
     respond_to do |format|
       if @evaluation.save 

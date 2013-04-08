@@ -24,7 +24,7 @@
 <br />
 
 <%= link_to 'Back', courses_path, class: "btn btn-small" %>
-<%= link_to 'Evaluate', newevaluation_path( :courseid => @course.id ), class: "btn btn-small" %>
+<%= link_to 'Evaluate', newevaluation_path( :course_id => @course.id ), class: "btn btn-small" %>
 
 <% if current_user.admin? or current_user.supervisor? %>
 <br />

@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130408183949) do
-=======
-ActiveRecord::Schema.define(:version => 20130408182039) do
->>>>>>> f57da2877fe83426851c948fdd5d2155f5db57c9
 
   create_table "attendances", :force => true do |t|
     t.integer  "coursesectionid"
