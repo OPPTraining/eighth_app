@@ -1,0 +1,7 @@
+<% if current_user.admin? or current_user.supervisor?%>
+<h1>Editing Course Section</h1>
+
+<%= render 'formedit' %>
+<% else %>
+<h3>Administrator Access is required</h3>
+<% end %>

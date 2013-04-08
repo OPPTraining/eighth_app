@@ -1,0 +1,38 @@
+<div class="row">
+<%= form_for(@coursesection) do |f| %>
+  <% if @coursesection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coursesection.errors.count, "error") %> prohibited this course section from being saved:</h2>
+
+      <ul>
+      <% @coursesection.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="span6 offset3">
+  <div class="field">
+    <%= f.label :course_id, 'Course Section Number' %>
+    <%= f.number_field :course_id, class: "input-mini" %>
+  </div>
+  <div class="field">
+    <%= f.label :coursesectiondate, 'Date' %>
+    <%= f.datetime_select :coursesectiondate, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %>
+    <%= f.number_field :duration, class: "input-mini" %>
+  </div>
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Edit Section', :class => 'btn btn-success btn-large' %>
+    <%= link_to 'Back', coursesections_path, class: "btn btn-large" %>
+  </div>
+</div>
+<% end %>
+</div>
