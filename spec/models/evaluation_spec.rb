@@ -3,8 +3,7 @@
 # Table name: evaluations
 #
 #  id         :integer          not null, primary key
-#  useremail  :string(255)
-#  courseid   :integer
+#  course_id  :integer
 #  Q1         :integer
 #  Q2         :integer
 #  Q3         :integer
@@ -17,6 +16,7 @@
 #  Q10        :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 require 'spec_helper'
