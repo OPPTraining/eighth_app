@@ -45,10 +45,10 @@ class CoursesectionsController < ApplicationController
   end
 
   def update
-    @course = Coursesection.find(params[:id])
+    @coursesection = Coursesection.find(params[:id])
 
     respond_to do |format|
-      if @course.update_attributes(params[:coursesection])
+      if @coursesection.update_attributes(params[:coursesection])
         format.html { redirect_to @coursesection, notice: 'Course Section was successfully updated.' }
         format.json { head :no_content }
       else

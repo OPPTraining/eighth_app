@@ -12,7 +12,7 @@
 <% @courses.each do |course| %>
   <tr>
     <td><%= course.coursename %></td>
-    <td><%= course.coursedescription %></td>
+    <td><%= truncate(course.coursedescription, :length => 50) %></td>
     <td><%= link_to 'More Information', course, class: "btn btn-small" %></td>
     <td>
     <% if current_user.admin? %>

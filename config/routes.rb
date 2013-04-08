@@ -34,6 +34,7 @@ EighthApp::Application.routes.draw do
   match '/newevaluation', to: 'evaluations#new'
   match '/attendance', to: 'attendances#index'
   match '/inactive', to: 'inactive#index'
+  match '/coursesections', to: 'coursesections#index'
 
 
   # The priority is based upon order of creation:

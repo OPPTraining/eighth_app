@@ -1,3 +1,4 @@
+<div class="row">
 <%= form_for(@coursesection) do |f| %>
   <% if @coursesection.errors.any? %>
     <div id="error_explanation">
@@ -11,23 +12,27 @@
     </div>
   <% end %>
 
+  <div class="span6 offset3">
   <div class="field">
-    <%= f.label :course_id %><br />
-    <%= f.text_field :course_id %>
+    <%= f.label :course_id, 'Course Section Number' %>
+    <%= f.number_field :course_id, class: "input-mini" %>
   </div>
   <div class="field">
-    <%= f.label :coursesectiondate %><br />
-    <%= f.text_field :coursesectiondate %>
+    <%= f.label :coursesectiondate, 'Date' %>
+    <%= f.datetime_select :coursesectiondate, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true %>
   </div>
   <div class="field">
-    <%= f.label :duration %><br />
-    <%= f.text_field :duration %>
+    <%= f.label :duration %>
+    <%= f.number_field :duration, class: "input-mini" %>
   </div>
   <div class="field">
-    <%= f.label :location %><br />
+    <%= f.label :location %>
     <%= f.text_field :location %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Add Section', :class => 'btn btn-primary btn-large' %>
+    <%= link_to 'Back', coursesections_path, class: "btn btn-large" %>
   </div>
+</div>
 <% end %>
+</div>
