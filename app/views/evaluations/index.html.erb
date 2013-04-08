@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Useremail</th>
-    <th>Courseid</th>
+    <th>User_id</th>
+    <th>Course_id</th>
     <th>Q1</th>
     <th>Q2</th>
     <th>Q3</th>
@@ -21,8 +21,8 @@
 
 <% @evaluations.each do |evaluation| %>
   <tr>
-    <td><%= evaluation.useremail %></td>
-    <td><%= evaluation.courseid %></td>
+    <td><%= evaluation.user_id %></td>
+    <td><%= evaluation.course_id %></td>
     <td><%= evaluation.Q1 %></td>
     <td><%= evaluation.Q2 %></td>
     <td><%= evaluation.Q3 %></td>

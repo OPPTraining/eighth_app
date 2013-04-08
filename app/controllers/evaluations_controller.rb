@@ -1,6 +1,5 @@
 class EvaluationsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
-  before_filter :correct_user,   only: :destroy
 
   # GET /evaluations
   # GET /evaluations.json
@@ -43,10 +42,10 @@ class EvaluationsController < ApplicationController
   # POST /evaluations
   # POST /evaluations.json
   def create
-    @evaluation = cuEvaluation.new(params[:evaluation])
+    @evaluation = Evaluation.new(params[:evaluation])
 
     respond_to do |format|
-      if @evaluation.save
+      if @evaluation.save 
         format.html { redirect_to @evaluation, notice: 'Evaluation was successfully created.' }
         format.json { render json: @evaluation, status: :created, location: @evaluation }
       else

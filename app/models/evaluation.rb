@@ -3,8 +3,7 @@
 # Table name: evaluations
 #
 #  id         :integer          not null, primary key
-#  useremail  :string(255)
-#  courseid   :integer
+#  course_id  :integer
 #  Q1         :integer
 #  Q2         :integer
 #  Q3         :integer
@@ -17,13 +16,13 @@
 #  Q10        :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 class Evaluation < ActiveRecord::Base
-  attr_accessible :Q1, :Q10, :Q2, :Q3, :Q4, :Q5, :Q6, :Q7, :Q8, :Q9, :courseid, :useremail
+  attr_accessible :Q1, :Q10, :Q2, :Q3, :Q4, :Q5, :Q6, :Q7, :Q8, :Q9, :course_id, :user_id
   belongs_to :course
   belongs_to :user
 
-  validates :user_email, presence: true
-  validates :courseid, presence: true
+  validates :course_id, presence: true
 end
