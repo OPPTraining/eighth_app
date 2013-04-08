@@ -14,11 +14,11 @@
   <div class="span6 offset3">
     <div class="field">
       <%= f.label :useremail %><br />
-      <%= f.text_field :useremail %>
+      <%= f.text_field :useremail, :value => current_user.email, :disabled => true %>
     </div>
     <div class="field">
       <%= f.label :courseid %><br />
-      <%= f.number_field :courseid %>
+      <%= f.number_field :courseid, :value => :courseid %>
     </div>
     <div class="field">
       <%= f.label :Q1 %>
