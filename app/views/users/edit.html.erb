@@ -31,8 +31,14 @@
       <%= f.label :password_confirmation, "Confirm New Password" %>
       <%= f.password_field :password_confirmation %>
 
-      <%= f.label :inactive, "User Inactive?" %>
-      <%= f.check_box :inactive %>
+      <% if !current_user?(@user) %>
+            <%= f.label :inactive, "User Inactive?" %>
+            <%= f.check_box :inactive %>
+      <% elsif current_user?(@user) %>
+            <%= f.label :inactive, "User Inactive?" %>
+            <%= f.check_box :inactive, :disabled => true %>
+      <% end %>
+
       <br />
       <br />
 
