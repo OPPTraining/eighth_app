@@ -12,7 +12,7 @@
 #
 
 class Coursesection < ActiveRecord::Base
-  attr_accessible :coursesectiondate, :duration, :location
+  attr_accessible :coursesectiondate, :duration, :location, :course_id
   belongs_to :course
 
   validates :course_id, presence: true

@@ -18,7 +18,7 @@
   <tr>
     <td><%= externaltraining.title %></td>
     <td><%= externaltraining.facilitator %></td>
-    <td><%= externaltraining.description %></td>
+    <td><%= truncate(externaltraining.description, :length => 40) %></td>
     <% if current_user.admin? or current_user.supervisor? %>
     <td>
         <% if externaltraining.supervisorapproval? %> <i class="icon-ok"></i> <% end %>

@@ -1,0 +1,33 @@
+<h1>List of Course Sections</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Course Name</th>
+    <th>Course Section</th>
+    <th>Course Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @coursesections.each do |coursesection| %>
+  <tr>
+    <td><%= 'Course name will go here' %></td>
+    <td><%= coursesection.course_id %></td>
+    <td><%= coursesection.coursesectiondate %></td>
+    <td><%= link_to 'More Information', coursesection, class: "btn btn-small" %></td>
+    <td>
+    <% if current_user.admin? or current_user.supervisor? %>
+    <%= link_to 'Edit', edit_coursesection_path(coursesection), class: "btn btn-small btn-success" %></td>
+    <td><%= link_to 'Destroy', coursesection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
+    <% else %>
+    <td></td><td></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if current_user.admin? or current_user.supervisor? %>
+<%= link_to 'Add New Section', newcoursesection_path, class: "btn btn-small btn-primary" %>
+<% end %>
