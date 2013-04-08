@@ -7,6 +7,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @courses.each do |course| %>
@@ -15,12 +16,22 @@
     <td><%= truncate(course.coursedescription, :length => 50) %></td>
     <td><%= link_to 'More Information', course, class: "btn btn-small" %></td>
     <td>
-    <% if current_user.admin? %>
-    <%= link_to 'Edit', edit_course_path(course), class: "btn btn-small btn-success" %></td>
-    <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
-    <% else %>
+      <% if current_user.admin? %>
+      <%= link_to 'Edit', edit_course_path(course), class: "btn btn-small btn-success" %></td>
+      <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
+      <% else %>
     <td></td><td></td>
     <% end %>
+  <td>
+          <% if course.tags.any? %>
+              
+              <% course.tags.each do |tag| %>
+              <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+          
+                       
+          <% end %>
+  </td>
+<% end %>
   </tr>
 <% end %>
 </table>
