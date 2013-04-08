@@ -1,4 +1,12 @@
 class CoursesController < ApplicationController
+
+  def tagged
+  if params[:tag].present? 
+    @courses = Course.tagged_with(params[:tag])
+  else 
+    @courses = Course.postall
+  end  
+end
   # GET /courses
   # GET /courses.json
   def index

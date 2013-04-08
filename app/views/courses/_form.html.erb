@@ -23,6 +23,12 @@
     <div class="field">
       <%= f.file_field :resource %>
     </div>
+
+    <div class="field">
+    <%= f.label :tags %>
+    <%= f.text_field :tag_list, placeholder: "Add Some Tags: Example 'Leadership, Microsoft Office, ect...'" %>
+    </div>
+
     <div class="actions">
       <%= f.submit 'Add Course', :class => 'btn btn-large btn-primary' %>
       <%= link_to 'Back', courses_path, class: "btn btn-large" %>

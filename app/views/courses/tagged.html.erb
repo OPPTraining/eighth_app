@@ -1,0 +1,42 @@
+<h1>List of Courses Tagged With <%= params[:tag] %></h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Course Name</th>
+    <th>Course Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>Tags</th>
+  </tr>
+
+<% @courses.each do |course| %>
+  <tr>
+    <td><%= course.coursename %></td>
+    <td><%= truncate(course.coursedescription, :length => 50) %></td>
+    <td><%= link_to 'More Information', course, class: "btn btn-small" %></td>
+    <td>
+      <% if current_user.admin? %>
+      <%= link_to 'Edit', edit_course_path(course), class: "btn btn-small btn-success" %></td>
+      <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
+      <% else %>
+    <td></td><td></td>
+    <% end %>
+  <td>
+          <% if course.tags.any? %>
+              
+              <% course.tags.each do |tag| %>
+              <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+          
+                       
+          <% end %>
+  </td>
+<% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if current_user.admin? %>
+<%= link_to 'Add New Course', new_course_path, class: "btn btn-small btn-primary" %>
+<% end %>

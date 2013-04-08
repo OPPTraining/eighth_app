@@ -7,6 +7,7 @@ source 'https://rubygems.org'
 	gem 'will_paginate', '3.0.3'
 	gem 'bootstrap-will_paginate', '0.0.6'
 	gem 'carrierwave'
+	gem 'acts-as-taggable-on', '~> 2.3.1'
 
 	group :development, :test do
   		gem 'sqlite3', '1.3.5'
