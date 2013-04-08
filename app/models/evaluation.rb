@@ -21,4 +21,9 @@
 
 class Evaluation < ActiveRecord::Base
   attr_accessible :Q1, :Q10, :Q2, :Q3, :Q4, :Q5, :Q6, :Q7, :Q8, :Q9, :courseid, :useremail
+  belongs_to :course
+  belongs_to :user
+
+  validates :user_email, presence: true
+  validates :courseid, presence: true
 end
