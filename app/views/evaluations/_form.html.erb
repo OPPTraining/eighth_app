@@ -13,12 +13,12 @@
   <% end %>
   <div class="span6 offset3">
     <div class="field">
-      <%= f.label :useremail %><br />
-      <%= f.text_field :useremail %>
+      <%= f.label :user_id %><br />
+      <%= f.number_field :user_id, :value => current_user.id%>
     </div>
     <div class="field">
-      <%= f.label :courseid %><br />
-      <%= f.number_field :courseid %>
+      <%= f.label :course_id %><br />
+      <%= f.number_field :course_id %>
     </div>
     <div class="field">
       <%= f.label :Q1 %>

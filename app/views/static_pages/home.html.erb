@@ -16,6 +16,8 @@
         <% if current_user.admin? %>
         <%= link_to "Create New Internal Course", newcourse_path, 
                                 class: "btn btn-large btn-primary" %>
+        <%= link_to "View Evaluations", evaluationsindex_path, 
+                                class: "btn btn-large btn-primary" %>
         <% end %>
         <br>
       <section>
