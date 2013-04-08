@@ -1,4 +1,7 @@
 class EvaluationsController < ApplicationController
+  before_filter :signed_in_user, only: [:create, :destroy]
+  before_filter :correct_user,   only: :destroy
+
   # GET /evaluations
   # GET /evaluations.json
   def index
@@ -40,7 +43,7 @@ class EvaluationsController < ApplicationController
   # POST /evaluations
   # POST /evaluations.json
   def create
-    @evaluation = Evaluation.new(params[:evaluation])
+    @evaluation = cuEvaluation.new(params[:evaluation])
 
     respond_to do |format|
       if @evaluation.save
