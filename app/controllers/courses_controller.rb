@@ -45,6 +45,11 @@ end
     @course = Course.find(params[:id])
   end
 
+  # GET /courses/1/courseevaluation
+  def courseevaluation
+    @course = Course.find(params[:id])
+  end
+
   # POST /courses
   # POST /courses.json
   def create

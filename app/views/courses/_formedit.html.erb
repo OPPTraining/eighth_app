@@ -20,8 +20,12 @@
       <%= f.label :title, "Course Description" %>
       <%= f.text_area :coursedescription, :rows => "4" %>
     </div>
-      <div class="field">
+    <div class="field">
       <%= f.file_field :resource %>
+    </div>
+    <div class="field">
+      <%= f.label :tags %>
+      <%= f.text_field :tag_list, placeholder: "Add Some Tags: Example 'Leadership, Microsoft Office, ect...'" %>
     </div>
     <div class="actions">
       <%= f.submit 'Edit Course', :class => 'btn btn-large btn-success' %>
