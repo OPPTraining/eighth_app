@@ -12,9 +12,9 @@
 
 <% @coursesections.each do |coursesection| %>
   <tr>
-    <td><%= 'Course name will go here' %></td>
-    <td><%= coursesection.course_id %></td>
-    <td><%= coursesection.coursesectiondate %></td>
+    <td><%= coursesection.course.coursename %></td>
+    <td><%= coursesection.id %></td>
+    <td><%= coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
     <td><%= link_to 'More Information', coursesection, class: "btn btn-small" %></td>
     <td>
     <% if current_user.admin? or current_user.supervisor? %>
@@ -28,6 +28,3 @@
 </table>
 
 <br />
-<% if current_user.admin? or current_user.supervisor? %>
-<%= link_to 'Add New Section', newcoursesection_path, class: "btn btn-small btn-primary" %>
-<% end %>

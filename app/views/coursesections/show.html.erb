@@ -1,23 +1,52 @@
+<div class="row">
 <% content_for :title, "coursesection" %>
 <% provide(:title, @coursesections.course_id) %>
 
 
 <p>
 	<h2>
-  <b><%= @coursesections.course_id %></b>
+  <b><%= @coursesections.course.coursename %> - Section <%= @coursesections.id %> </b>
 </h2>
 </p>
 
+<div class="span6 offset3">
 <p>
-  <b>Course ID:</b>
-  <%= @coursesections.course_id %>
+  <b>Course Name:</b>
+  <%= @coursesections.course.coursename %>
 </p>
 
 <p>
-  <b>Course Location:</b><br />
+  <b>Course Section:</b>
+  <%= @coursesections.id %>
+</p>
+
+<p>
+  <b>Course Description:</b><br />
+  <%= @coursesections.course.coursedescription %>
+</p>
+
+<p>
+  <b>Date:</b><br />
+  <%= @coursesections.coursesectiondate.strftime("%m/%d/%Y") %>
+</p>
+
+<p>
+  <b>Time:</b><br />
+  <%= @coursesections.coursesectiondate.strftime("%I:%M%p") %>
+</p>
+
+<p>
+  <b>Length: </b><%= @coursesections.duration %> hour(s)
+</p>
+
+<p>
+  <b>Location:</b><br />
   <%= @coursesections.location %>
 </p>
 
+<p>
+	<%= link_to 'Attached File', @coursesections.course.resource_url.to_s, class: "btn btn-warning" %>
+</p>
 
 <br />
 
@@ -30,4 +59,6 @@
 <%= link_to 'Attendance', attendance_path, class: "btn btn-small"%>
 <%= link_to 'Edit', edit_coursesection_path, class: "btn btn-small btn-success"%>
 <%= link_to 'Destroy', @coursesection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
+</div>
 <% end %>
+</div>

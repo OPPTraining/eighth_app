@@ -24,7 +24,7 @@
 
   <div class="field">
     <%= f.label :date, "Date & Time" %>
-    <%= f.datetime_select :date, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true %>
+    <%= f.datetime_select :date, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true, :minute_step => 15  %>
   </div>
 
 
