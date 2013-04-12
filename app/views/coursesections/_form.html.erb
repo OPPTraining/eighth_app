@@ -14,12 +14,11 @@
 
   <div class="span6 offset3">
   <div class="field">
-    <%= f.label :course_id, 'Course Section Number' %>
-    <%= f.number_field :course_id, class: "input-mini" %>
+    <%= f.hidden_field :course_id, class: "input-mini", :value => (params[:course_id]) %>
   </div>
   <div class="field">
     <%= f.label :coursesectiondate, 'Date' %>
-    <%= f.datetime_select :coursesectiondate, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true %>
+    <%= f.datetime_select :coursesectiondate, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true, :start_year => 2013, :minute_step => 15 %>
   </div>
   <div class="field">
     <%= f.label :duration %>

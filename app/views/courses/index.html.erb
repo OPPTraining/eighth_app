@@ -8,6 +8,9 @@
     <th></th>
     <th></th>
     <th></th>
+    <% if !current_user.admin? and !current_user.supervisor? %>
+    <th></th>
+    <% end %>
   </tr>
 
 <% @courses.each do |course| %>

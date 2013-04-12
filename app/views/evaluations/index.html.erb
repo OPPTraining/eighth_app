@@ -1,9 +1,9 @@
 <h1>Listing evaluations</h1>
 
-<table>
+<table class = "table table-bordered table-hover">
   <tr>
-    <th>User_id</th>
-    <th>Course_id</th>
+    <th>User</th>
+    <th>Course</th>
     <th>Q1</th>
     <th>Q2</th>
     <th>Q3</th>
@@ -21,8 +21,8 @@
 
 <% @evaluations.each do |evaluation| %>
   <tr>
-    <td><%= evaluation.user_id %></td>
-    <td><%= evaluation.course_id %></td>
+    <td><%= evaluation.user.name %></td>
+    <td><%= evaluation.course.coursename %></td>
     <td><%= evaluation.Q1 %></td>
     <td><%= evaluation.Q2 %></td>
     <td><%= evaluation.Q3 %></td>
@@ -41,5 +41,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Evaluation', new_evaluation_path %>

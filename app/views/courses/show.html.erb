@@ -1,12 +1,23 @@
+<div class="row">
 <% content_for :title, "courses" %>
 <% provide(:title, @course.coursename) %>
 
-
+<aside class="span4">
 <p>
 	<h2>
   <b><%= @course.coursename %></b>
 </h2>
 </p>
+
+<h2>
+<%= link_to 'Back', courses_path, class: "btn btn-small" %>
+<% if current_user.admin? or current_user.supervisor? %>
+<%= link_to 'New Section', newcoursesection_path( :course_id => @course.id ), class: "btn btn-small btn-primary"%>
+<%= link_to 'Edit', edit_course_path(@course), class: "btn btn-small btn-success"%>
+<%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
+<% end %>
+</h2>
+
 
 <p>
   <b>Course ID:</b>
@@ -21,24 +32,49 @@
 <p>
 	<%= link_to 'Attached File', @course.resource_url.to_s, class: "btn btn-warning" %>
 </p>
-<br />
 
-<%= link_to 'Back', courses_path, class: "btn btn-small" %>
-<%= link_to 'Evaluate', newevaluation_path( :course_id => @course.id ), class: "btn btn-small" %>
-
-<% if current_user.admin? or current_user.supervisor? %>
-<br />
-<br />
-<%= link_to 'Attendance', attendance_path, class: "btn btn-small"%>
-<%= link_to 'New Section', newcoursesection_path, class: "btn btn-small"%>
-<%= link_to 'Evaluations', courses/:id/courseevaluations_path( :course_id => @course.id ), class: "btn btn-small"%>
-<% end %>
-<% if current_user.admin? %>
-<%= link_to 'Edit', edit_course_path(@course), class: "btn btn-small btn-success"%>
-<%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
-<% end %>
 
 <% @course.tags.any? %>
   <% @course.tags.each do |tag| %>
   <%= link_to tag.name, tagged_url(:tag => tag.name) %>
 <% end %>
+</aside>
+
+<div class="span8">
+	<br /><br /><br /><br /><br />
+<table class="table table-striped">
+  <tr>
+    <th>Course Section</th>
+    <th>Course Date</th>
+    <th>Course Time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <% if !current_user.admin? and !current_user.supervisor? %>
+    <th></th>
+    <% end %>
+  </tr>
+
+<% @course.coursesections.each do |coursesection| %>
+  <tr>
+    <td><%= coursesection.id %></td>
+    <td><%= coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
+    <td><%= coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
+    <td><%= link_to 'More Information', coursesection, class: "btn btn-small" %></td>
+    <td>
+    <% if current_user.admin? or current_user.supervisor? %>
+    <%= link_to 'Edit', edit_coursesection_path(coursesection), class: "btn btn-small btn-success" %></td>
+    <td><%= link_to 'Destroy', coursesection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
+    <% else %>
+    <td></td><td></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+</div>
+
+
+
+
+
+</div>
