@@ -38,6 +38,7 @@ EighthApp::Application.routes.draw do
   match '/coursesections', to: 'coursesections#index'
   match '/coursesections/:id/coursesectioneval' => 'coursesections#coursesectioneval', :as => :coursesectioneval
   match '/tagged' => 'courses#tagged', :as => 'tagged'
+  match 'coursesections/:id/attendance' => 'coursesections#attendance', :as => :attendance
 
 
   # The priority is based upon order of creation:

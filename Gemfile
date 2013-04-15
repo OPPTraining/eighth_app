@@ -26,7 +26,9 @@ source 'https://rubygems.org'
   		gem 'uglifier', '1.2.3'
 	end
 
-	gem 'jquery-rails', '2.0.2'
+	gem 'jquery-rails'
+	gem "jquery_datepicker"
+	gem 'jquery-ui-rails'
 
 	group :test do
   		gem 'capybara', '1.1.2'

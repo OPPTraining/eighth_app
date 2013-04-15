@@ -1,3 +1,4 @@
+<%= javascript_include_tag "application" %>
 <div class="row">
 <%= form_for(@coursesection) do |f| %>
   <% if @coursesection.errors.any? %>
@@ -16,22 +17,29 @@
   <div class="field">
     <%= f.hidden_field :course_id, class: "input-mini", :value => (params[:course_id]) %>
   </div>
-  <div class="field">
-    <%= f.label :coursesectiondate, 'Date' %>
-    <%= f.datetime_select :coursesectiondate, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true, :start_year => 2013, :minute_step => 15 %>
-  </div>
+  
+  <%= f.label "Course Date And Time" %>
+  <%= datetime_picker_input "coursesection",:coursesectiondate, :dateFormat => "yy-mm-dd" %>
+
+
   <div class="field">
     <%= f.label :duration, 'Duration (Minutes)' %>
     <%= f.number_field :duration, class: "input-mini" %>
   </div>
+
   <div class="field">
     <%= f.label :location %>
     <%= f.text_field :location %>
   </div>
+  
   <div class="actions">
     <%= f.submit 'Add Section', :class => 'btn btn-primary btn-large' %>
     <%= link_to 'Back', coursesections_path, class: "btn btn-large" %>
   </div>
+
+ 
+
+
 </div>
 <% end %>
 </div>
