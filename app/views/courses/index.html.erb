@@ -13,7 +13,7 @@
     <% end %>
   </tr>
 
-<% @courses.each do |course| %>
+<% @courses.sort {|a,b| a.coursename <=> b.coursename }.each do |course| %>
   <tr>
     <td><%= course.coursename %></td>
     <td><%= truncate(course.coursedescription, :length => 50) %></td>
