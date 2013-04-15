@@ -7,14 +7,20 @@
     <th>User Email</th>
     <th>Approved?</th>
     <th>Attended</th>
+    <th></th>
   </tr>
 
 <% @attendances.each do |attendance| %>
   <tr>
     <td><%= attendance.coursesectionid %></td>
     <td><%= attendance.useremail %></td>
-    <td><%= attendance.approved %></td>
-    <td><%= attendance.didattend %></td>
+
+    <%= form_for(attendance) do |f| %>
+    <td><%= f.select :approved, [['Yes', true],['No', false]], :include_blank => true %></td>
+    <td><%= f.check_box :didattend %></td>
+    <td><%= f.submit 'Update', class: "btn btn-small"%></td>
+    <%end%>
+
   </tr>
 <% end %>
 </table>

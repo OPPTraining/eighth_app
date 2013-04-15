@@ -9,7 +9,7 @@ class CoursesectionsController < ApplicationController
   end
 
   def attendance
-    @attendances = Attendance.all
+    @attendances = Attendance.where(:coursesectionid => params[:id])
 
 
     respond_to do |format|
