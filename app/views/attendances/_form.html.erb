@@ -1,3 +1,4 @@
+<div class="row">
 <%= form_for(@attendance) do |f| %>
   <% if @attendance.errors.any? %>
     <div id="error_explanation">
@@ -10,8 +11,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+<div class="span6 offset3">
+  <div class="field">
+    <%= f.hidden_field :coursesectionid, :value => (params[:coursesectionid]) %>
   </div>
+  <div class="field">
+    <%= f.hidden_field :useremail, :value => current_user.email %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Sign Up', :class => 'btn btn-primary btn-large'%>
+    <%= link_to 'Back', attendances_path, :class => 'btn btn-large' %>
+  </div>
+</div>
 <% end %>
+</div>

@@ -12,4 +12,6 @@
 
 class Attendance < ActiveRecord::Base
   attr_accessible :coursesectionid, :didattend, :useremail
+
+  belongs_to :coursesections
 end

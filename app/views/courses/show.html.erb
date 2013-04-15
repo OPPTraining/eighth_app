@@ -67,7 +67,9 @@
     <%= link_to 'Edit', edit_coursesection_path(coursesection), class: "btn btn-small btn-success" %></td>
     <td><%= link_to 'Destroy', coursesection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
     <% else %>
-    <td></td><td></td>
+    <td><%= link_to 'Sign Up', new_attendance_path( :coursesectionid => coursesection.id ), class: "btn btn-small btn-primary" %></td>
+
+    <td></td>
     <% end %>
   </tr>
 <% end %>
