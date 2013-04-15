@@ -34,7 +34,6 @@
 </p>
 
 
-
 <% @course.tags.any? %>
   <% @course.tags.each do |tag| %>
   <%= link_to tag.name, tagged_url(:tag => tag.name) %>
@@ -52,6 +51,7 @@
     <th></th>
     <th></th>
     <% if !current_user.admin? and !current_user.supervisor? %>
+    <th></th>
     <th></th>
     <% end %>
   </tr>

@@ -13,7 +13,6 @@
 class Course < ActiveRecord::Base
   attr_accessible :coursedescription, :coursename, :resource, :tag_list
   has_many :coursesections, dependent: :destroy
-  has_many :evaluations
 
   mount_uploader :resource, ResourceuploadUploader
   

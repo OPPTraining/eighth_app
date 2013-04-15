@@ -51,12 +51,17 @@
 <br />
 
 <%= link_to 'Back', coursesections_path, class: "btn btn-small" %>
-<%= link_to 'Evaluate', newevaluation_path, class: "btn btn-small" %>
+<%= link_to 'Evaluate', newevaluation_path( :coursesection_id => @coursesections.id ), class: "btn btn-small" %>
 
 <% if current_user.admin? or current_user.supervisor? %>
 <br />
 <br />
+<<<<<<< HEAD
 <%= link_to 'Attendance', attendance_url, class: "btn btn-small"%>
+=======
+<%= link_to 'Evaluations', coursesectioneval_url(@coursesections), class: "btn btn-small"%>
+<%= link_to 'Attendance', attendance_path, class: "btn btn-small"%>
+>>>>>>> b532f80d1547bb56753144f23386d245a6cf443b
 <%= link_to 'Edit', edit_coursesection_path, class: "btn btn-small btn-success"%>
 <%= link_to 'Destroy', @coursesection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
 </div>

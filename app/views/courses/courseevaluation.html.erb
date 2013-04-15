@@ -1,0 +1,68 @@
+<% content_for :title, "courses" %>
+<% provide(:title, @course.coursename) %>
+
+
+<p>
+<h2>
+  <b><%= @course.coursename %></b>
+</h2>
+</p>
+
+<p>
+  <b>Course ID:</b>
+  <%= @course.id %>
+</p>
+<% if @course.evaluations.any? %>
+	<table>
+	  <tr>
+	    <th>User_id</th>
+	    <th>Course_id</th>
+	    <th>Q1</th>
+	    <th>Q2</th>
+	    <th>Q3</th>
+	    <th>Q4</th>
+	    <th>Q5</th>
+	    <th>Q6</th>
+	    <th>Q7</th>
+	    <th>Q8</th>
+	    <th>Q9</th>
+	    <th>Q10</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+   	  </tr>
+
+	<% @course.evaluations.each do |evaluation| %>
+  	  <tr>
+    	<td><%= evaluation.user_id %></td>
+    	<td><%= evaluation.course_id %></td>
+    	<td><%= evaluation.Q1 %></td>
+    	<td><%= evaluation.Q2 %></td>
+    	<td><%= evaluation.Q3 %></td>
+    	<td><%= evaluation.Q4 %></td>
+    	<td><%= evaluation.Q5 %></td>
+    	<td><%= evaluation.Q6 %></td>
+    	<td><%= evaluation.Q7 %></td>
+    	<td><%= evaluation.Q8 %></td>
+    	<td><%= evaluation.Q9 %></td>
+    	<td><%= evaluation.Q10 %></td>
+    	<td><%= link_to 'Show', evaluation %></td>
+    	<td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
+    	<td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ 	  </tr>
+	<% end %>
+	</table>
+<% end %>
+
+<%= link_to 'Back', courses_path, class: "btn btn-small" %>
+<%= link_to 'Evaluate', newevaluation_path( :course_id => @course.id ), class: "btn btn-small" %>
+
+<% if current_user.admin? or current_user.supervisor? %>
+<%= link_to 'Edit', edit_course_path(@course), class: "btn btn-small btn-success"%>
+<%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
+<% end %>
+
+<% @course.tags.any? %>
+  <% @course.tags.each do |tag| %>
+  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+<% end %>

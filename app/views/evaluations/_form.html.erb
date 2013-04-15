@@ -13,8 +13,7 @@
   <% end %>
   <div class="span6 offset3">
     <div class="field">
-      <%= f.label :course_id %>
-      <%= f.hidden_field :course_id, :value => (params[:course_id]) %>
+      <%= f.hidden_field :coursesection_id, :value => (params[:coursesection_id]) %>
     </div>
     <div class="field">
       <%= f.label :Q1 %>
@@ -48,19 +47,19 @@
     </div>
     <div class="field">
       <%= f.label :Q7 %><br />
-      <%= f.text_area :Q7 %>
+      <%= f.text_area :Q7, :rows => 4 %>
     </div>
     <div class="field">
       <%= f.label :Q8 %><br />
-      <%= f.text_area :Q8 %>
+      <%= f.text_area :Q8, :rows => 4 %>
     </div>
     <div class="field">
       <%= f.label :Q9 %><br />
-      <%= f.text_area :Q9 %>
+      <%= f.text_area :Q9, :rows => 4 %>
     </div>
     <div class="field">
       <%= f.label :Q10 %><br />
-      <%= f.text_area :Q10 %>
+      <%= f.text_area :Q10, :rows => 4 %>
     </div>
     <div class="actions">
       <%= f.submit %>

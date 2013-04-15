@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408183949) do
+ActiveRecord::Schema.define(:version => 20130412173416) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "coursesectionid"
@@ -24,12 +24,8 @@ ActiveRecord::Schema.define(:version => 20130408183949) do
   create_table "courses", :force => true do |t|
     t.string   "coursename"
     t.text     "coursedescription"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-    t.string   "attach_file_name"
-    t.string   "attach_content_type"
-    t.integer  "attach_file_size"
-    t.datetime "attach_updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "resource"
   end
 
@@ -45,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20130408183949) do
   add_index "coursesections", ["course_id", "created_at"], :name => "index_coursesections_on_course_id_and_created_at"
 
   create_table "evaluations", :force => true do |t|
-    t.integer  "course_id"
+    t.integer  "coursesection_id"
     t.integer  "Q1"
     t.integer  "Q2"
     t.integer  "Q3"
@@ -56,8 +52,8 @@ ActiveRecord::Schema.define(:version => 20130408183949) do
     t.text     "Q8"
     t.text     "Q9"
     t.text     "Q10"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "user_id"
   end
 
@@ -110,36 +106,16 @@ ActiveRecord::Schema.define(:version => 20130408183949) do
     t.string "name"
   end
 
-  create_table "usercourses", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-    t.string   "attach_file_name"
-    t.string   "attach_content_type"
-    t.integer  "attach_file_size"
-    t.datetime "attach_updated_at"
-    t.string   "pic_file_name"
-    t.string   "pic_content_type"
-    t.integer  "pic_file_size"
-    t.datetime "pic_updated_at"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",               :default => false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.string   "avatar"
-    t.boolean  "supervisor",          :default => false
-    t.boolean  "inactive",            :default => false
+    t.boolean  "admin",           :default => false
+    t.boolean  "supervisor",      :default => false
+    t.boolean  "inactive",        :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
