@@ -14,11 +14,9 @@
 class Coursesection < ActiveRecord::Base
   attr_accessible :coursesectiondate, :duration, :location, :course_id, :id
   belongs_to :course
-<<<<<<< HEAD
+
   has_many :attendance
-=======
   has_many :evaluations
->>>>>>> b532f80d1547bb56753144f23386d245a6cf443b
 
   validates :course_id, presence: true
   validates :coursesectiondate, presence: true
