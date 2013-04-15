@@ -21,7 +21,7 @@
     <%= f.datetime_select :coursesectiondate, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true, :start_year => 2013, :minute_step => 15 %>
   </div>
   <div class="field">
-    <%= f.label :duration %>
+    <%= f.label :duration, 'Duration (Minutes)' %>
     <%= f.number_field :duration, class: "input-mini" %>
   </div>
   <div class="field">
