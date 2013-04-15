@@ -8,6 +8,7 @@
 #  didattend       :boolean
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  approved        :boolean
 #
 
 require 'spec_helper'

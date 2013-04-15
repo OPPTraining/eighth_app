@@ -5,15 +5,16 @@
   <tr>
     <th>Course Section</th>
     <th>User Email</th>
-    <th>Course Time</th>
-    <th></th>
-    <th></th>
+    <th>Approved?</th>
+    <th>Attended</th>
   </tr>
 
 <% @attendances.each do |attendance| %>
   <tr>
     <td><%= attendance.coursesectionid %></td>
     <td><%= attendance.useremail %></td>
+    <td><%= attendance.approved %></td>
+    <td><%= attendance.didattend %></td>
   </tr>
 <% end %>
 </table>
