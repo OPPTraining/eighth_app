@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412173416) do
+ActiveRecord::Schema.define(:version => 20130415180658) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "coursesectionid"
@@ -19,13 +19,18 @@ ActiveRecord::Schema.define(:version => 20130412173416) do
     t.boolean  "didattend"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.boolean  "approved"
   end
 
   create_table "courses", :force => true do |t|
     t.string   "coursename"
     t.text     "coursedescription"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "attach_file_name"
+    t.string   "attach_content_type"
+    t.integer  "attach_file_size"
+    t.datetime "attach_updated_at"
     t.string   "resource"
   end
 
@@ -106,16 +111,36 @@ ActiveRecord::Schema.define(:version => 20130412173416) do
     t.string "name"
   end
 
+  create_table "usercourses", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "attach_file_name"
+    t.string   "attach_content_type"
+    t.integer  "attach_file_size"
+    t.datetime "attach_updated_at"
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "pic_updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
-    t.boolean  "supervisor",      :default => false
-    t.boolean  "inactive",        :default => false
+    t.boolean  "admin",               :default => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "avatar"
+    t.boolean  "supervisor",          :default => false
+    t.boolean  "inactive",            :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

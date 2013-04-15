@@ -4,6 +4,7 @@
   <tr>
     <th>User</th>
     <th>Course</th>
+    <th>Course Section</th>
     <th>Q1</th>
     <th>Q2</th>
     <th>Q3</th>
@@ -22,7 +23,8 @@
 <% @evaluations.each do |evaluation| %>
   <tr>
     <td><%= evaluation.user.name %></td>
-    <td><%= evaluation.course.coursename %></td>
+    <td><%= evaluation.coursesection.course.coursename %></td>
+    <td><%= evaluation.coursesection.id %></td>
     <td><%= evaluation.Q1 %></td>
     <td><%= evaluation.Q2 %></td>
     <td><%= evaluation.Q3 %></td>

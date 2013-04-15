@@ -8,6 +8,17 @@ class CoursesectionsController < ApplicationController
     end
   end
 
+  def attendance
+    @attendances = Attendance.all
+
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @attendances }
+    end
+  end
+
+
   def show
     @coursesections = Coursesection.find(params[:id])
 
@@ -27,6 +38,10 @@ class CoursesectionsController < ApplicationController
   end
 
   def edit
+    @coursesection = Coursesection.find(params[:id])
+  end
+
+  def coursesectioneval
     @coursesection = Coursesection.find(params[:id])
   end
 
