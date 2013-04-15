@@ -30,6 +30,10 @@ class CoursesectionsController < ApplicationController
     @coursesection = Coursesection.find(params[:id])
   end
 
+  def coursesectioneval
+    @coursesection = Coursesection.find(params[:id])
+  end
+
   def create
     @coursesection = Coursesection.new(params[:coursesection])
 

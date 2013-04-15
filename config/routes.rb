@@ -36,7 +36,7 @@ EighthApp::Application.routes.draw do
   match '/inactive', to: 'inactive#index'
   match '/evaluationsindex', to: 'evaluations#index'
   match '/coursesections', to: 'coursesections#index'
-  match '/courses/:id/courseevaluations', to: 'courses#courseevaluation'
+  match '/coursesections/:id/coursesectioneval' => 'coursesections#coursesectioneval', :as => :coursesectioneval
   match '/tagged' => 'courses#tagged', :as => 'tagged'
 
 
