@@ -1,8 +1,7 @@
-<div class="row">
 <% content_for :title, "coursesection" %>
 <% provide(:title, @coursesections.course_id) %>
 
-
+<div class="row">
 <p>
 	<h2>
   <b><%= @coursesections.course.coursename %> - Section <%= @coursesections.id %> </b>
@@ -40,7 +39,7 @@
 </p>
 
 <p>
-  <b>Location:</b><br />
+  <b>Location:</b>
   <%= @coursesections.location %>
 </p>
 
@@ -50,9 +49,9 @@
 
 <br />
 
-<%= link_to 'Back', coursesections_path, class: "btn btn-small" %>
+<%= link_to 'Back', courses_path, class: "btn btn-small" %>
 <%= link_to 'Evaluate', newevaluation_path( :coursesection_id => @coursesections.id ), class: "btn btn-small" %>
-
+<%= link_to 'Sign Up', new_attendance_path( :coursesectionid => @coursesections.id ), class: "btn btn-small btn-primary" %>
 <% if current_user.admin? or current_user.supervisor? %>
 <br />
 <br />
@@ -61,6 +60,6 @@
 <%= link_to 'Evaluations', coursesectioneval_url(@coursesections), class: "btn btn-small"%>
 <%= link_to 'Edit', edit_coursesection_path, class: "btn btn-small btn-success"%>
 <%= link_to 'Destroy', @coursesection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
-</div>
 <% end %>
+</div>
 </div>

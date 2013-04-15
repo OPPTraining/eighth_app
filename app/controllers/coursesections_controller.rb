@@ -9,7 +9,7 @@ class CoursesectionsController < ApplicationController
   end
 
   def attendance
-    @attendances = Attendance.where(:coursesectionid => params[:id])
+    @attendances = Attendance.where(:coursesectionid => params[:id], :approved => [nil, true])
 
 
     respond_to do |format|

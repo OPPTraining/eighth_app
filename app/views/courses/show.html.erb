@@ -50,6 +50,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
     <% if !current_user.admin? and !current_user.supervisor? %>
     <th></th>
     <th></th>
@@ -63,12 +64,12 @@
       <td><%= coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
       <td><%= coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
       <td><%= link_to 'More Information', coursesection, class: "btn btn-small" %></td>
+      <td><%= link_to 'Sign Up', new_attendance_path( :coursesectionid => coursesection.id ), class: "btn btn-small btn-primary" %></td>
       <td>
       <% if current_user.admin? or current_user.supervisor? %>
       <%= link_to 'Edit', edit_coursesection_path(coursesection), class: "btn btn-small btn-success" %></td>
       <td><%= link_to 'Destroy', coursesection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
       <% else %>
-      <td><%= link_to 'Sign Up', new_attendance_path( :coursesectionid => coursesection.id ), class: "btn btn-small btn-primary" %></td>
       <td></td>
       <% end %>
     <% end %>
