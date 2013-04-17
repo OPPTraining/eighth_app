@@ -27,10 +27,10 @@
     <td><%= evaluation.Q2 %></td>
     <td><%= evaluation.Q3 %></td>
     <td><%= evaluation.Q4 %></td>
-    <td><%= evaluation.Q5 %></td>
-    <td><%= evaluation.Q6 %></td>
-    <td><%= evaluation.Q7 %></td>
-    <td><%= evaluation.Q8 %></td>
+    <td><%= truncate(evaluation.Q5, length => 10) %></td>
+    <td><%= truncate(evaluation.Q6, length => 10) %></td>
+    <td><%= truncate(evaluation.Q7, length => 10) %></td>
+    <td><%= truncate(evaluation.Q8, length => 10) %></td>
     <td><%= link_to 'Show', evaluation %></td>
     <td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
     <td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
