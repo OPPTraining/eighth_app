@@ -35,7 +35,7 @@
 </p>
 
 <p>
-  <b>Length: </b><%= @coursesections.duration %> hour(s)
+  <b>Length: </b><%= @coursesections.duration %> minutes
 </p>
 
 <p>
@@ -56,7 +56,7 @@
 <br />
 <br />
 
-<%= link_to 'Attendance', attendance_url, class: "btn btn-small"%>
+<%= link_to 'Attendance', attendances_path( :coursesectionid => @coursesections.id ), class: "btn btn-small"%>
 <%= link_to 'Evaluations', coursesectioneval_url(@coursesections), class: "btn btn-small"%>
 <%= link_to 'Edit', edit_coursesection_path, class: "btn btn-small btn-success"%>
 <%= link_to 'Destroy', @coursesection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
