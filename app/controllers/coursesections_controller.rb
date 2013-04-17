@@ -45,6 +45,22 @@ class CoursesectionsController < ApplicationController
     @coursesection = Coursesection.find(params[:id])
   end
 
+  def coursesectioneval5
+    @coursesection = Coursesection.find(params[:id])
+  end
+
+  def coursesectioneval6
+    @coursesection = Coursesection.find(params[:id])
+  end
+
+  def coursesectioneval7
+    @coursesection = Coursesection.find(params[:id])
+  end
+
+  def coursesectioneval8
+    @coursesection = Coursesection.find(params[:id])
+  end
+
   def create
     @coursesection = Coursesection.new(params[:coursesection])
 

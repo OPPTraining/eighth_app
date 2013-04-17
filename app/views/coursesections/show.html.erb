@@ -56,10 +56,25 @@
 <br />
 <br />
 
+<<<<<<< HEAD
 <%= link_to 'Attendance', attendances_path( :coursesectionid => @coursesections.id ), class: "btn btn-small"%>
 <%= link_to 'Evaluations', coursesectioneval_url(@coursesections), class: "btn btn-small"%>
+=======
+<%= link_to 'Attendance', attendance_url, class: "btn btn-small"%>
+>>>>>>> e0be3a935dcf3c934707332e8e1fb41d413d357b
 <%= link_to 'Edit', edit_coursesection_path, class: "btn btn-small btn-success"%>
 <%= link_to 'Destroy', @coursesection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
+<br />
+<br />
+<section>
+  <%= link_to 'Evaluations', coursesectioneval_url(@coursesections), class: "btn btn-small"%>
+  <%= link_to 'Question 5', coursesectioneval5_url(@coursesections), class: "btn btn-small"%>
+  <%= link_to 'Question 6', coursesectioneval6_url(@coursesections), class: "btn btn-small"%>
+  <br />
+  <br />
+  <%= link_to 'Question 7', coursesectioneval7_url(@coursesections), class: "btn btn-small"%>
+  <%= link_to 'Question 8', coursesectioneval8_url(@coursesections), class: "btn btn-small"%>
+</section>
 <% end %>
 </div>
 </div>

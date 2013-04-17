@@ -1,0 +1,31 @@
+<% content_for :title, "Course Section Evaluation Q8" %>
+<% provide(:title, @coursesection.id) %>
+
+<p>
+<h2>
+  <b><%= @coursesection.course.coursename %> Section <%= @coursesection.id %> Question 8</b>
+</h2>
+</p>
+
+<p>
+  <b>Course Section ID:</b>
+  <%= @coursesection.id %>
+</p>
+
+<h1>Question 8 Answers</h1>
+<% if @coursesection.evaluations.any? %>
+	<table class = "table table-bordered table-hover">
+	<tr>
+		<th>User</th>
+		<th>Q8</th>
+	</tr>
+
+
+	<% @coursesection.evaluations.each do |evaluation| %>
+		<tr>
+			<td><%= evaluation.user.name %></td>
+			<td><%= evaluation.Q8 %></td>
+		</tr>
+	<% end %>
+	</table>
+<% end %>
