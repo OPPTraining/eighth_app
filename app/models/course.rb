@@ -22,4 +22,12 @@ class Course < ActiveRecord::Base
   
   acts_as_taggable_on :tags
 
+ def self.search(search)
+  if search
+    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+  else
+    find(:all)
+  end
+end
+
 end
