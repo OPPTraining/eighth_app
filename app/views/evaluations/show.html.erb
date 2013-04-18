@@ -7,7 +7,12 @@
 
 <p>
   <b>Course:</b>
-  <%= @evaluation.course.coursename %>
+  <%= @evaluation.coursesection.course.coursename %>
+</p>
+
+<p>
+  <b>CourseSection:</b>
+  <%= @evaluation.coursesection.id %>
 </p>
 
 <p>
@@ -50,15 +55,6 @@
   <%= @evaluation.Q8 %>
 </p>
 
-<p>
-  <b>Q9:</b>
-  <%= @evaluation.Q9 %>
-</p>
-
-<p>
-  <b>Q10:</b>
-  <%= @evaluation.Q10 %>
-</p>
 
 
 <%= link_to 'Edit', edit_evaluation_path(@evaluation) %> |

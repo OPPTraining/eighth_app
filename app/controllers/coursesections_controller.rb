@@ -9,7 +9,11 @@ class CoursesectionsController < ApplicationController
   end
 
   def attendance
+<<<<<<< HEAD
     @attendances = Attendance.where(params[:id])
+=======
+    @attendances = Attendance.where(:coursesectionid => params[:id], :approved => [nil, true])
+>>>>>>> e0be3a935dcf3c934707332e8e1fb41d413d357b
 
 
     respond_to do |format|
@@ -42,6 +46,22 @@ class CoursesectionsController < ApplicationController
   end
 
   def coursesectioneval
+    @coursesection = Coursesection.find(params[:id])
+  end
+
+  def coursesectioneval5
+    @coursesection = Coursesection.find(params[:id])
+  end
+
+  def coursesectioneval6
+    @coursesection = Coursesection.find(params[:id])
+  end
+
+  def coursesectioneval7
+    @coursesection = Coursesection.find(params[:id])
+  end
+
+  def coursesectioneval8
     @coursesection = Coursesection.find(params[:id])
   end
 

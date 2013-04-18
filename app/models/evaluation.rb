@@ -8,12 +8,10 @@
 #  Q2               :integer
 #  Q3               :integer
 #  Q4               :integer
-#  Q5               :integer
-#  Q6               :integer
+#  Q5               :text
+#  Q6               :text
 #  Q7               :text
 #  Q8               :text
-#  Q9               :text
-#  Q10              :text
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  user_id          :integer

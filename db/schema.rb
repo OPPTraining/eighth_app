@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130412173416) do
+=======
+ActiveRecord::Schema.define(:version => 20130416180859) do
+>>>>>>> e0be3a935dcf3c934707332e8e1fb41d413d357b
 
   create_table "attendances", :force => true do |t|
     t.integer  "coursesectionid"
@@ -19,6 +23,10 @@ ActiveRecord::Schema.define(:version => 20130412173416) do
     t.boolean  "didattend"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+<<<<<<< HEAD
+=======
+    t.boolean  "approved"
+>>>>>>> e0be3a935dcf3c934707332e8e1fb41d413d357b
   end
 
   create_table "courses", :force => true do |t|
@@ -46,12 +54,19 @@ ActiveRecord::Schema.define(:version => 20130412173416) do
     t.integer  "Q2"
     t.integer  "Q3"
     t.integer  "Q4"
+<<<<<<< HEAD
     t.integer  "Q5"
     t.integer  "Q6"
     t.text     "Q7"
     t.text     "Q8"
     t.text     "Q9"
     t.text     "Q10"
+=======
+    t.text     "Q5"
+    t.text     "Q6"
+    t.text     "Q7"
+    t.text     "Q8"
+>>>>>>> e0be3a935dcf3c934707332e8e1fb41d413d357b
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.integer  "user_id"

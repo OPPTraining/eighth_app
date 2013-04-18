@@ -12,54 +12,51 @@
     </div>
   <% end %>
   <div class="span6 offset3">
+    <h5>Please rate this training in terms of Facilitator's <b>Expertise</b>, <b>Clarity</b>, <b>Time Management</b>, and <b>Relevance</b> to your professional needs (4 Questions):</br>
+            RATING SCALE:  1 = LOW     3 = MEDIUM    5 = HIGH</h5>
     <div class="field">
       <%= f.hidden_field :coursesection_id, :value => (params[:coursesection_id]) %>
     </div>
     <div class="field">
-      <%= f.label :Q1 %>
-      <%= f.label "How would you rate this training?" %> 
-      <%= f.select :Q1, [[1,'1'], [2,'2'], [3,'3'], [4,'4'], [5,'5']]%>
+      <%= f.label :Q1, "Question 1" %>
+      <%= f.label "Facilitator's Expertise" %> 
+      <%= f.select :Q1, [[1,'1'], [2,'2'], [3,'3'], [4,'4'], [5,'5']], :selected => '3' %>
     </div>
     <div class="field">
-      <%= f.label :Q2 %>
-      <%= f.label "How would you rate this teacher?" %>
-      <%= f.select :Q2, [[1,'1'], [2,'2'], [3,'3'], [4,'4'], [5,'5']]%>
+      <%= f.label :Q2, "Question 2" %>
+      <%= f.label "Clarity" %>
+      <%= f.select :Q2, [[1,'1'], [2,'2'], [3,'3'], [4,'4'], [5,'5']], :selected => '3' %>
     </div>
     <div class="field">
-      <%= f.label :Q3 %>
-      <%= f.label "How would you rate this teacher?" %>
-      <%= f.select :Q3, [[1,'1'], [2,'2'], [3,'3'], [4,'4'], [5,'5']]%>
+      <%= f.label :Q3, "Question 3" %>
+      <%= f.label "Time Management" %>
+      <%= f.select :Q3, [[1,'1'], [2,'2'], [3,'3'], [4,'4'], [5,'5']], :selected => '3' %>
     </div>
     <div class="field">
-      <%= f.label :Q4 %>
-      <%= f.label "How would you rate this teacher?" %>
-      <%= f.select :Q4, [[1,'1'], [2,'2'], [3,'3'], [4,'4'], [5,'5']]%>
+      <%= f.label :Q4, "Question 4" %>
+      <%= f.label "Relevance" %>
+      <%= f.select :Q4, [[1,'1'], [2,'2'], [3,'3'], [4,'4'], [5,'5']], :selected => '3' %>
+    </div>
+    <h5> Please take a moment to answer the following questions. Your comments are an important contribution as we design learning experiences to meet the staff’s professional needs. </h5>
+    <div class="field">
+      <%= f.label :Q5, "Question 5" %>
+      <%= f.label "What will you do differently in your professional setting as a result of this training?" %>
+      <%= f.text_area :Q5, :rows => 4 %>
     </div>
     <div class="field">
-      <%= f.label :Q5 %>
-      <%= f.label "How would you rate this teacher?" %>
-      <%= f.select :Q5, [[1,'1'], [2,'2'], [3,'3'], [4,'4'], [5,'5']]%>
+      <%= f.label :Q6, "Question 6" %>
+      <%= f.label "What do you feel were the strengths of this training?" %>
+      <%= f.text_area :Q6, :rows => 4 %>
     </div>
     <div class="field">
-      <%= f.label :Q6 %>
-      <%= f.label "How would you rate this teacher?" %>
-      <%= f.select :Q6, [[1,'1'], [2,'2'], [3,'3'], [4,'4'], [5,'5']]%>
-    </div>
-    <div class="field">
-      <%= f.label :Q7 %><br />
+      <%= f.label :Q7, "Question 7" %>
+      <%= f.label "What do you feel were the weaknesses of the training?" %>
       <%= f.text_area :Q7, :rows => 4 %>
     </div>
     <div class="field">
-      <%= f.label :Q8 %><br />
-      <%= f.text_area :Q8, :rows => 4 %>
-    </div>
-    <div class="field">
-      <%= f.label :Q9 %><br />
-      <%= f.text_area :Q9, :rows => 4 %>
-    </div>
-    <div class="field">
-      <%= f.label :Q10 %><br />
-      <%= f.text_area :Q10, :rows => 4 %>
+      <%= f.label :Q8, "Question 8" %>
+      <%= f.label "Reflective summary- Please outline key learning objectives from the attended training." %>
+      <%= f.text_area :Q8, :rows => 6 %>
     </div>
     <div class="actions">
       <%= f.submit %>
