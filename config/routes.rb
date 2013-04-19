@@ -16,7 +16,7 @@ EighthApp::Application.routes.draw do
   resources :courses
   resources :coursesections
   resources :evaluations
-  resources :attendances
+  resources :attendances, :collection => { :complete => :put }
   resources :inactive
 
   root to: 'static_pages#home'
@@ -32,7 +32,7 @@ EighthApp::Application.routes.draw do
   match '/externaltrainings', to: 'externaltrainings#index'
   match '/newcoursesection', to: 'coursesections#new'
   match '/newevaluation', to: 'evaluations#new'
-  match '/attendance', to: 'attendances#index'
+  match '/attendance' => 'attendances#index', :as => 'attendancelist'
   match '/inactive', to: 'inactive#index'
   match '/evaluationsindex', to: 'evaluations#index'
   match '/coursesections', to: 'coursesections#index'
