@@ -16,7 +16,6 @@
 //= require bootstrap
 //= require_tree .
 
-
 /*
  * jQuery timepicker addon
  * By: Trent Richardson [http://trentrichardson.com]
@@ -1966,4 +1965,5 @@
 	$.timepicker.version = "1.2.2";
 
 })(jQuery);
+
 

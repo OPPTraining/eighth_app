@@ -7,10 +7,17 @@ class CoursesController < ApplicationController
     @courses = Course.postall
   end  
 end
+
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    if  params[:q].present?
+      @courses = Course.tagged_with(params[:q])
+
+    else
+
+      @courses = Course.all
+end
 
     respond_to do |format|
       format.html # index.html.erb
