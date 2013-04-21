@@ -3,16 +3,19 @@
 <h1>Active users</h1>
 <div class="row">
 	<div class="span6 offset3">
-		<p><%= link_to "Add New User", signup_path, class: "btn btn-primary" %></p>
-	</div>
-	</br>
+		<p><%= link_to "Add New User", signup_path, class: "btn btn-primary" %>
 
-	<% form_tag users_path, :method => 'get' do %>
-  		<p>
-    	<%= text_field_tag :search, params[:search] %>
-    	<%= submit_tag "Search", :name => nil %>
-  		</p>
-	<% end %>
+	<%= form_tag users_path, :method => 'get', :class =>"input-medium search-query" do %>
+    <div class="input-append">
+      <%= text_field_tag :search, params[:search], :placeholder => 'Search Users...' %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-inverse" %>
+    
+    
+		<% end %>
+	</div>
+	</p>
+</div>
+	</br>
 
 	<%= will_paginate %>
 

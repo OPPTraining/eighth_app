@@ -2,14 +2,18 @@ class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
   def index
-    @attendances = Attendance.all
-
+    @attendances = Attendance.where(:coursesectionid => params[:coursesection_id], :approved => [nil, true])
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @attendances }
+      Attendance.update_all(["updated_at=?", Time.now], :didattend => params[:attended])
     end
   end
 
+  def complete
+  Attendance.update_all(["completed_at=?", Time.now], :didattend => params[:attended])
+  end
   # GET /attendances/1
   # GET /attendances/1.json
   def show

@@ -1,21 +1,27 @@
-<h1>Listing attendances</h1>
+<h1>Course Attendance</h1>
 
-<table>
+<%= form_tag attendancelist_path, :method => :put, :url => :complete do |f| %>
+
+<table class="table table-striped">
   <tr>
-    <th></th>
+    <th>User</th>
+    <th>Attendance</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @attendances.each do |attendance| %>
   <tr>
-    <td><%= link_to 'Show', attendance %></td>
+    <td><%= attendance.useremail %></td>
+    <td><%= check_box_tag "attended[]", attendance.didattend %></td>
+    <td><%= attendance.didattend %></td>
     <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
     <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
+<%= submit_tag "Update Attendance" %>
+<% end %>
 <br />
 
 <%= link_to 'New Attendance', new_attendance_path %>

@@ -9,7 +9,15 @@ class CoursesectionsController < ApplicationController
   end
 
   def attendance
+<<<<<<< HEAD
+    @attendances = Attendance.where(:coursesectionid => params[:coursesectionid], :approved => [nil, true])
+=======
+<<<<<<< HEAD
+    @attendances = Attendance.where(params[:id])
+=======
     @attendances = Attendance.where(:coursesectionid => params[:id], :approved => [nil, true])
+>>>>>>> e0be3a935dcf3c934707332e8e1fb41d413d357b
+>>>>>>> 473f11ba647d645e39127f54b99849b535ee28e1
 
 
     respond_to do |format|
