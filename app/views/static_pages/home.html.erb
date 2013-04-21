@@ -21,6 +21,25 @@
       <section>
     </aside>
     <div class="span8">
+      <table class = "table table-bordered table-hover">
+        <tr>
+          <th>Course Name</th>
+          <th>Course Section</th>
+          <th>Course Date</th>
+          <th>Course Time</th>
+        </tr>
+      <% if current_user.attendances.any? %>
+        <% current_user.attendances.each do |attendances| %>
+          <% if attendances.coursesection.coursesectiondate >= Date.current %>
+            <tr>
+              <td><%= attendances.coursesection.course.id %></td>
+              <td><%= attendances.coursesection.id %></td>
+              <td><%= attendances.coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
+              <td><%= attendances.coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
       <h3>Micropost Feed</h3>
       <%= render 'shared/feed' %>
     </div>
