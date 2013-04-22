@@ -2,7 +2,7 @@ class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
   def index
-    @attendances = Attendance.where(:coursesectionid => params[:coursesection_id], :approved => [nil, true])
+    @attendances = Attendance.where(:coursesection_id => params[:coursesection_id], :approved => [nil, true])
     
     respond_to do |format|
       format.html # index.html.erb

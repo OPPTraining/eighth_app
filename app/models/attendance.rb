@@ -2,13 +2,13 @@
 #
 # Table name: attendances
 #
-#  id              :integer          not null, primary key
-#  coursesectionid :integer
-#  didattend       :boolean
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  approved        :boolean
-#  user_id         :integer
+#  id               :integer          not null, primary key
+#  coursesection_id :integer
+#  didattend        :boolean
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  approved         :boolean
+#  user_id          :integer
 #
 
 class Attendance < ActiveRecord::Base
