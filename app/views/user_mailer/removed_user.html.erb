@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+<%= @user %> has been removed from the following course:</br></br>
+
+<b>Course Name:</b> <%= @coursename %></br>
+<b>Course Section:</b> <%= @coursesection_id %></br>
+<b>Date:</b> <%= @coursesectiondate.strftime("%m/%d/%Y") %></br>
+<b>Time:</b> <%= @coursesectiondate.strftime("%I:%M%p") %></br>
+<b>Location:</b> <%= @location %></br></br>
+
+If you have any questions about this, contact your supervisor.</br>
+-------------------------------------------------------------------------------------------</br>
+This email has automatically been generated. Do not reply.</br>
+</body>
+</html>

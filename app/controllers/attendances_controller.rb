@@ -48,7 +48,9 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
-        UserMailer.signed_up(current_user.email).deliver
+        UserMailer.signed_up(current_user.email, @attendance.coursesection_id, 
+          @attendance.coursesection.course.coursename, @attendance.coursesection.coursesectiondate, @attendance.coursesection.duration, 
+          @attendance.coursesection.location).deliver
         format.html { redirect_to courses_path, notice: 'You have applied for this course section. You should receive a confirmation email shortly.' }
         format.json { render json: @attendance, status: :created, location: @attendance }
       else
@@ -81,6 +83,8 @@ class AttendancesController < ApplicationController
     @attendance.destroy
 
     respond_to do |format|
+      UserMailer.removed_user(@attendance.user.email, @attendance.coursesection_id, 
+        @attendance.coursesection.course.coursename, @attendance.coursesection.coursesectiondate, @attendance.coursesection.location).deliver
       format.html { redirect_to attendances_url }
       format.json { head :no_content }
     end
