@@ -24,6 +24,7 @@
           <tr>
             <th>Course Name</th>
             <th>Course Section</th>
+            <th>Facilitator</th>
             <th>Location</th>
             <th>Course Date</th>
             <th>Course Time</th>
@@ -34,6 +35,7 @@
               <tr>
                 <td><%= attendance.coursesection.course.coursename %></td>
                 <td><%= attendance.coursesection_id %></td>
+                <td><%= attendance.coursesection.facilitator %></td>
                 <td><%= attendance.coursesection.location %></td>
                 <td><%= attendance.coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
                 <td><%= attendance.coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
@@ -47,6 +49,7 @@
           <tr>
             <th>Course Name</th>
             <th>Course Section</th>
+            <th>Facilitator</th>
             <th>Location</th>
             <th>Course Date</th>
             <th>Course Time</th>
@@ -60,6 +63,7 @@
                 <tr>
                   <td><%= attendance.coursesection.course.coursename %></td>
                   <td><%= attendance.coursesection_id %></td>
+                  <td><%= attendance.coursesection.facilitator %></td>
                   <td><%= attendance.coursesection.location %></td>
                   <td><%= attendance.coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
                   <td><%= attendance.coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
