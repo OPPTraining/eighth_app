@@ -9,13 +9,13 @@
       </section>
       
       <section>
-        <%= link_to "Create New External Training", externaltrainings_path, class: "btn btn-large btn-primary" %>
-        <br> <br>
+        <%= link_to "Create New External Training", externaltrainings_path, class: "btn  btn-primary btn-block" %>
+        <br>
         <% if current_user.admin? %>
         <%= link_to "Create New Internal Course", newcourse_path, 
-                                class: "btn btn-large btn-primary" %>
+                                class: "btn  btn-primary btn-block" %>
         <% end %>
-        <br> <br>
+        <br> 
       <section>
     </aside>
       <div class="span8">
@@ -50,7 +50,6 @@
             <th>Location</th>
             <th>Course Date</th>
             <th>Course Time</th>
-            <th></th>
           </tr>
         <% if current_user.attendances.any? %>
           <% current_user.attendances.each do |attendance| %>
