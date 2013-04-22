@@ -21,12 +21,10 @@
     <%= f.label :facilitator %>
     <%= f.text_field :facilitator %>
   </div>
-
-  <div class="field">
-    <%= f.label :date, "Date & Time" %>
-    <%= f.datetime_select :date, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true %>
-  </div>
-
+<div class = "field">
+  <%= f.label "Course Date And Time" %>
+  <%= datetime_picker_input "coursesection",:coursesectiondate, :dateFormat => "yy-mm-dd" %>
+</div>
 
   <div class="field">
     <%= f.label :duration, "Duration (in hours)" %>
