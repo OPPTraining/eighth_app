@@ -1,0 +1,28 @@
+<div class="row">
+<%= form_for(@attendance) do |f| %>
+  <% if @attendance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
+
+      <ul>
+      <% @attendance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="span6 offset3">
+  <div class="field">
+    <h4><%= @attendance.user_id %></h4></br>
+  </div>
+  <div class="field">
+    <%= f.label "Attended?" %>
+    <%= f.check_box :didattend, :class => "checkbox" %>
+  </div></br>
+  <div class="actions">
+    <%= f.submit 'Edit Attendance', :class => 'btn btn-success btn-large'%>
+    <%= link_to 'Back', attendances_path, :class => 'btn btn-large' %>
+  </div>
+</div>
+<% end %>
+</div>

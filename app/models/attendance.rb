@@ -12,7 +12,7 @@
 #
 
 class Attendance < ActiveRecord::Base
-  attr_accessible :coursesectionid, :didattend, :user_id, :approved
+  attr_accessible :coursesection_id, :didattend, :user_id, :approved
 
   belongs_to :coursesection
   belongs_to :user
