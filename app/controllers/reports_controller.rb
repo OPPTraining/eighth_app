@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
 	before_filter :admin_or_supervisor
 
   def reports
-  	
+  	@user=User.all
   end
 
   private

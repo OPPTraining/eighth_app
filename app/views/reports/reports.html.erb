@@ -1,2 +1,22 @@
-<h1>Reports#reports</h1>
-<p>Find me in app/views/reports/reports.html.erb</p>
+<div class="page-header">
+<h1>List of Course Sections Attended by User</h1>
+</div>
+	
+<table class = "table table-bordered table-hover">
+	<tr>
+		<th>User Email</th>
+		<th>Course Section</th>
+		<th>Attended</th>
+	</tr>
+<% @user.each do |user| %>
+	<% user.each do |report| %>
+
+	<tr>
+		<td><%= report.useremail %></td>
+		<td><%= report.coursesectionid %></td>
+		<td><%= report.didattend %></td>
+	</tr>
+	
+</table>
+
+<%= will_paginate %>
