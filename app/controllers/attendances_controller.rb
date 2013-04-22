@@ -48,7 +48,7 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_to courses_path, notice: 'You have applied for this course section. You will receive an email if you are approved by your Supervisor.' }
+        format.html { redirect_to courses_path, notice: 'You have applied for this course section. You should receive a confirmation email shortly.' }
         format.json { render json: @attendance, status: :created, location: @attendance }
       else
         format.html { render action: "new" }

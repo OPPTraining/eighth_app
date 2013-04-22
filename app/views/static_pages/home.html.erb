@@ -21,27 +21,56 @@
       <section>
     </aside>
       <div class="span8">
+        <h3>Upcoming Classes</h3>
         <table class = "table table-bordered table-hover">
           <tr>
             <th>Course Name</th>
             <th>Course Section</th>
+            <th>Location</th>
             <th>Course Date</th>
             <th>Course Time</th>
-            <th>Location</th>
           </tr>
         <% if current_user.attendances.any? %>
           <% current_user.attendances.each do |attendance| %>
-            <tr>
-              <td><%= attendance.coursesection.course.id %></td>
-              <td><%= attendance.coursesection_id %></td>
-              <td><%= attendance.coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
-              <td><%= attendance.coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
-              <td><%= attendance.coursesection.location %></td>
-            </tr>
+            <% if attendance.coursesection.coursesectiondate >= Date.current %>
+              <tr>
+                <td><%= attendance.coursesection.course.coursename %></td>
+                <td><%= attendance.coursesection_id %></td>
+                <td><%= attendance.coursesection.location %></td>
+                <td><%= attendance.coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
+                <td><%= attendance.coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
+              </tr>
+            <% end %>
           <% end %>
         <% end %>
+      </table>
+        <h3>Classes to Evaluate</h3>
+        <table class = "table table-bordered table-hover">
+          <tr>
+            <th>Course Name</th>
+            <th>Course Section</th>
+            <th>Location</th>
+            <th>Course Date</th>
+            <th>Course Time</th>
+            <th></th>
+          </tr>
+        <% if current_user.attendances.any? %>
+          <% current_user.attendances.each do |attendance| %>
+            <% if attendance.coursesection.coursesectiondate <= Date.current %>
+              <tr>
+                <td><%= attendance.coursesection.course.coursename %></td>
+                <td><%= attendance.coursesection_id %></td>
+                <td><%= attendance.coursesection.location %></td>
+                <td><%= attendance.coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
+                <td><%= attendance.coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
+                <td><%= link_to 'Evaluate', newevaluation_path( :coursesection_id => attendance.coursesection.id ), class: "btn btn-small" %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+      </table>
       </div>
-</div>  
+  </div> 
 <% else %>
   <div class="center hero-unit">
     <h1>Welcome to the OPP Training Portal</h1>
