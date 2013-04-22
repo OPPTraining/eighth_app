@@ -3,7 +3,6 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
     </section>
@@ -30,8 +29,13 @@
               <td><%= attendance.coursesection.location %></td>
               <td><%= attendance.coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
               <td><%= attendance.coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
-              <td><% if attendance.didattend? %> <i class="icon-ok"></i> <% end %>
-                <% if not attendance.didattend? %> <i class="icon-remove icon-red"></i> <% end %>
+              <td>
+                <% if attendance.coursesection.coursesectiondate < Date.current %>
+                  <% if attendance.didattend? %> <i class="icon-ok"></i> <% end %>
+                  <% if not attendance.didattend? %> <i class="icon-remove icon-red"></i> <% end %>
+                <% else %>
+                  N/A
+                <% end %>
               </td>
             </tr>
         <% end %>
