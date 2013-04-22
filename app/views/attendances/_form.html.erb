@@ -16,7 +16,7 @@
     <%= f.hidden_field :coursesectionid, :value => (params[:coursesectionid]) %>
   </div>
   <div class="field">
-    <%= f.hidden_field :useremail, :value => current_user.email %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div class="actions">
     <%= f.submit 'Sign Up', :class => 'btn btn-primary btn-large'%>

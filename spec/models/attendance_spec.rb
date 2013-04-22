@@ -4,11 +4,11 @@
 #
 #  id              :integer          not null, primary key
 #  coursesectionid :integer
-#  useremail       :string(255)
 #  didattend       :boolean
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  approved        :boolean
+#  user_id         :integer
 #
 
 require 'spec_helper'
