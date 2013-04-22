@@ -49,7 +49,6 @@
 
 <br />
 
-<%= link_to 'Back', courses_path, class: "btn btn-small" %>
 <%= link_to 'Evaluate', newevaluation_path( :coursesection_id => @coursesections.id ), class: "btn btn-small" %>
 <% if current_user.evaluations.where(:user_id == current_user.id && :coursesection_id == @coursesections.id).any? %>
 <br /><p>You are already Signed Up!</p><br />
