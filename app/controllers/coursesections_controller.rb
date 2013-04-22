@@ -22,6 +22,14 @@ class CoursesectionsController < ApplicationController
     #end
   #end
 
+  def attendance
+    @attendances = Attendance.where(:coursesectionid => params[:coursesectionid], :approved => [nil, true])
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @attendances }
+    end
+  end
+
 
   def show
     @coursesections = Coursesection.find(params[:id])
