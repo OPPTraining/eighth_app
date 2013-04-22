@@ -1,0 +1,20 @@
+<div class="page-header">
+<h1>List of Course Sections Attended by User</h1>
+</div>
+	
+<table class = "table table-bordered table-hover">
+	<tr>
+		<th>User Email</th>
+		<th>Course Section</th>
+		<th>Attended</th>
+	</tr>
+<% @reports.each do |report| %>
+	<tr>
+		<td><%= report.useremail %></td>
+		<td><%= report.coursesectionid %></td>
+		<td><%= report.didattend %></td>
+	</tr>
+<% end %>
+	
+</table>
+

@@ -17,6 +17,7 @@ class Coursesection < ActiveRecord::Base
 
   has_many :attendances
   has_many :evaluations
+  
 
   validates :course_id, presence: true
   validates :coursesectiondate, presence: true
