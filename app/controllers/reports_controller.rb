@@ -5,6 +5,7 @@ class ReportsController < ApplicationController
 
   def reports
   	@user=User.all
+  	@report=@user.find(params[:attendance])
   end
 
   private

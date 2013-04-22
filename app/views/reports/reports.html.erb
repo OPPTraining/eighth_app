@@ -8,14 +8,13 @@
 		<th>Course Section</th>
 		<th>Attended</th>
 	</tr>
-<% @user.each do |user| %>
-	<% user.each do |report| %>
-
+<% @report.each do |user| %>
 	<tr>
-		<td><%= report.useremail %></td>
-		<td><%= report.coursesectionid %></td>
-		<td><%= report.didattend %></td>
+		<td><%= user.email %></td>
+		<td><%= user.coursesectionid %></td>
+		<td><%= user.didattend %></td>
 	</tr>
+	<%end%>
 	
 </table>
 
