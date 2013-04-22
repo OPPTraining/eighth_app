@@ -8,14 +8,13 @@
 		<th>Course Section</th>
 		<th>Attended</th>
 	</tr>
-<% @report.each do |user| %>
+<% @reports.each do |report| %>
 	<tr>
-		<td><%= user.email %></td>
-		<td><%= user.coursesectionid %></td>
-		<td><%= user.didattend %></td>
+		<td><%= report.useremail %></td>
+		<td><%= report.coursesectionid %></td>
+		<td><%= report.didattend %></td>
 	</tr>
-	<%end%>
+<% end %>
 	
 </table>
 
-<%= will_paginate %>

@@ -4,8 +4,7 @@ class ReportsController < ApplicationController
 	before_filter :admin_or_supervisor
 
   def reports
-  	@user=User.all
-  	@report=@user.find(params[:attendance])
+  	@reports=Attendance.all
   end
 
   private
