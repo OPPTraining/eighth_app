@@ -50,7 +50,7 @@ class AttendancesController < ApplicationController
       if @attendance.save
         UserMailer.signed_up(current_user.email, @attendance.coursesection_id, 
           @attendance.coursesection.course.coursename, @attendance.coursesection.coursesectiondate, @attendance.coursesection.duration, 
-          @attendance.coursesection.location).deliver
+          @attendance.coursesection.location, @attendance.coursesection.course.resource_url.to_s).deliver
         format.html { redirect_to courses_path, notice: 'You have applied for this course section. You should receive a confirmation email shortly.' }
         format.json { render json: @attendance, status: :created, location: @attendance }
       else
