@@ -1,4 +1,4 @@
-
+<%= javascript_include_tag "application" %>
 <div class="row">
 <%= form_for @externaltraining, :html => {:multipart => true} do |f| %>
   <% if @externaltraining.errors.any? %>
@@ -23,7 +23,7 @@
   </div>
 <div class = "field">
   <%= f.label "Course Date And Time" %>
-  <%= datetime_picker_input "coursesection",:coursesectiondate, :dateFormat => "yy-mm-dd" %>
+  <%= datetime_picker_input "externaltraining",:date, :dateFormat => "yy-mm-dd" %>
 </div>
 
   <div class="field">

@@ -1,3 +1,4 @@
+<%= javascript_include_tag "application" %>
 <div class="row">
 <%= form_for @externaltraining, :html => {:multipart => true} do |f| %>
   <% if @externaltraining.errors.any? %>
@@ -20,10 +21,11 @@
     <%= f.label :facilitator %>
     <%= f.text_field :facilitator %>
   </div>
-  <div class="field">
-    <%= f.label :date, "Date & Time" %>
-    <%= f.datetime_select :date, :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}, :order => [:month, :day, :year], :ampm => true, :minute_step => 15  %>
-  </div>
+  
+
+  <%= f.label "Course Date And Time" %>
+  <%= datetime_picker_input "externaltraining",:date, :dateFormat => "yy-mm-dd" %>
+
   <div class="field">
     <%= f.label :duration, "Duration (in minutes)" %>
     <%= f.number_field :duration, class: "input-mini" %>
