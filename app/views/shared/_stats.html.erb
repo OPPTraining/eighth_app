@@ -1,4 +1,5 @@
-<% @user ||= current_user %>
+<section>
+	<% @user ||= current_user %>
 <div class="stats">
   <a href="/courses">
     <strong id="following" class="stat">
@@ -6,4 +7,16 @@
     </strong>
     Upcoming Classses
   </a>
-</div>
+ <br>
+ </div>
+</section>
+
+<section>
+Email: 
+
+<strong id="email" class="">
+  <i class="icon-envelope">  </i><%= mail_to @user.email %></i>
+</strong>
+
+</section>
+ 
