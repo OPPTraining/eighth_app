@@ -21,10 +21,10 @@
     <%= f.label :facilitator %>
     <%= f.text_field :facilitator %>
   </div>
-<div class = "field">
+
   <%= f.label "Course Date And Time" %>
-  <%= datetime_picker_input "coursesection",:coursesectiondate, :dateFormat => "yy-mm-dd" %>
-</div>
+  <%= datetime_picker_input "externaldate",:date, :dateFormat => "yy-mm-dd" %>
+
 
   <div class="field">
     <%= f.label :duration, "Duration (in minutes)" %>
