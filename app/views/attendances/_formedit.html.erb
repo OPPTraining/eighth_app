@@ -13,13 +13,14 @@
   <% end %>
 <div class="span6 offset3">
   <div class="field">
-    <%= f.hidden_field :coursesection_id, :value => (params[:coursesectionid]) %>
+    <h4><%= @attendance.user_id %></h4></br>
   </div>
   <div class="field">
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-  </div>
+    <%= f.label "Attended?" %>
+    <%= f.check_box :didattend, :class => "checkbox" %>
+  </div></br>
   <div class="actions">
-    <%= f.submit 'Sign Up', :class => 'btn btn-primary btn-large'%>
+    <%= f.submit 'Edit Attendance', :class => 'btn btn-success btn-large'%>
     <%= link_to 'Back', attendances_path, :class => 'btn btn-large' %>
   </div>
 </div>

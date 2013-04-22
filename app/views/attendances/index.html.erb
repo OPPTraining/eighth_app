@@ -12,16 +12,16 @@
 
 <% @attendances.each do |attendance| %>
   <tr>
-    <td><%= attendance.useremail %></td>
-    <td><%= check_box_tag "attended[]", attendance.didattend %></td>
-    <td><%= attendance.didattend %></td>
-    <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-    <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= attendance.user_id %></td>
+    <td><% if attendance.didattend? %> <i class="icon-ok"></i> <% end %>
+        <% if not attendance.didattend? %> <i class="icon-remove icon-red"></i> <% end %>
+    </td>
+    <td><%= link_to 'Edit', edit_attendance_path(attendance), :class => 'btn btn-small' %></td>
+    <td><%= link_to 'Remove', attendance, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
   </tr>
 <% end %>
 </table>
-<%= submit_tag "Update Attendance" %>
 <% end %>
 <br />
 
-<%= link_to 'New Attendance', new_attendance_path %>
+<%= link_to 'Courses', courses_path, :class => 'btn' %>
