@@ -10,8 +10,8 @@
 	</tr>
 <% @reports.each do |report| %>
 	<tr>
-		<td><%= report.useremail %></td>
-		<td><%= report.coursesectionid %></td>
+		<td><%= report.user.name %></td>
+		<td><%= report.coursesection_id %></td>
 		<td><%= report.didattend %></td>
 	</tr>
 <% end %>

@@ -13,12 +13,25 @@
   </aside>
   <div class="span8">
     <%= render 'follow_form' if signed_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
-      <%= will_paginate @microposts %>
-    <% end %>
+    <table class = "table table-bordered table-hover">
+      <tr>
+        <th>Course Name</th>
+        <th>Course Section</th>
+        <th>Location</th>
+        <th>Course Date</th>
+        <th>Course Time</th>
+      </tr>
+      <% if @user.attendances.any? %>
+        <% @user.attendances.sort {|a,b| a.coursesection.coursesectiondate <=> b.coursesection.coursesectiondate }.each do |attendance| %>
+            <tr>
+              <td><%= attendance.coursesection.course.coursename %></td>
+              <td><%= attendance.coursesection_id %></td>
+              <td><%= attendance.coursesection.location %></td>
+              <td><%= attendance.coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
+              <td><%= attendance.coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
+            </tr>
+        <% end %>
+      <% end %>
+    </table>
   </div>
 </div>

@@ -1,0 +1,57 @@
+<div class="row">
+<% content_for :title, "courses" %>
+<% provide(:title, @course.coursename) %>
+
+<p>
+<h2>
+  <b><%= @course.coursename %> Report</b>
+</h2>
+</p>
+
+
+
+
+<p>
+  <b>Course ID:</b>
+  <%= @course.id %>
+</p>
+
+<p>
+  <b>Course Description:</b><br />
+  <%= @course.coursedescription %>
+</p>
+
+
+
+<% @course.tags.any? %>
+  <% @course.tags.each do |tag| %>
+  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+<% end %>
+
+	<br /><br /><br /><br /><br />
+<table class="table table-striped">
+  <tr>
+    <th>User ID</th>
+    <th>User Name</th>
+    <th>Course Section</th>
+    <th>Attend</th>
+  </tr>
+
+<% @course.coursesections.sort {|a,b| a.coursesectiondate <=> b.coursesectiondate }.each do |coursesection| %>
+  <% coursesection.attendances.each do |attendance| %>
+      <tr>
+        <td><%= attendance.user.id %></td>
+        <td><%= attendance.user.name %></td>
+        <td><%= attendance.coursesection.id %></td>
+        <td><%= attendance.didattend %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+
+
+
+
+
+
+</div>
