@@ -20,6 +20,7 @@
         <th>Location</th>
         <th>Course Date</th>
         <th>Course Time</th>
+        <th>Attendance</th>
       </tr>
       <% if @user.attendances.any? %>
         <% @user.attendances.sort {|a,b| a.coursesection.coursesectiondate <=> b.coursesection.coursesectiondate }.each do |attendance| %>
@@ -29,6 +30,9 @@
               <td><%= attendance.coursesection.location %></td>
               <td><%= attendance.coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
               <td><%= attendance.coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
+              <td><% if attendance.didattend? %> <i class="icon-ok"></i> <% end %>
+                <% if not attendance.didattend? %> <i class="icon-remove icon-red"></i> <% end %>
+              </td>
             </tr>
         <% end %>
       <% end %>

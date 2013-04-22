@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422164134) do
+ActiveRecord::Schema.define(:version => 20130422203839) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "coursesection_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20130422164134) do
     t.integer  "duration"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "facilitator"
   end
 
   add_index "coursesections", ["course_id", "created_at"], :name => "index_coursesections_on_course_id_and_created_at"

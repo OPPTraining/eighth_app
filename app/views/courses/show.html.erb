@@ -64,7 +64,10 @@
       <td><%= coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
       <td><%= coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
       <td><%= link_to 'More Information', coursesection, class: "btn btn-small" %></td>
+      <% if current_user.evaluations.where(:user_id == current_user.id && :coursesection_id == @coursesections.id).any? %>
+      <% else %>
       <td><%= link_to 'Sign Up', new_attendance_path( :coursesection_id => coursesection.id ), class: "btn btn-small btn-primary" %></td>
+      <% end %>
       <td>
       <% if current_user.admin? or current_user.supervisor? %>
       <%= link_to 'Edit', edit_coursesection_path(coursesection), class: "btn btn-small btn-success" %></td>

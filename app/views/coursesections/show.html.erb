@@ -25,6 +25,11 @@
 </p>
 
 <p>
+  <b>Facilitator:</b><br />
+  <%= @coursesections.facilitator %>
+</p>
+
+<p>
   <b>Date:</b><br />
   <%= @coursesections.coursesectiondate.strftime("%m/%d/%Y") %>
 </p>
@@ -51,7 +56,7 @@
 
 <%= link_to 'Evaluate', newevaluation_path( :coursesection_id => @coursesections.id ), class: "btn btn-small" %>
 <% if current_user.evaluations.where(:user_id == current_user.id && :coursesection_id == @coursesections.id).any? %>
-<br /><p>You are already Signed Up!</p><br />
+<p>You are already Signed Up!</p>
 <% else %>
 <%= link_to 'Sign Up', new_attendance_path( :coursesection_id => @coursesections.id ), class: "btn btn-small btn-primary" %>
 <% end %>
