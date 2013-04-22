@@ -48,6 +48,7 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
+        UserMailer.signed_up(current_user.email).deliver
         format.html { redirect_to courses_path, notice: 'You have applied for this course section. You should receive a confirmation email shortly.' }
         format.json { render json: @attendance, status: :created, location: @attendance }
       else
