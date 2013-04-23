@@ -44,7 +44,7 @@ class ExternaltrainingsController < ApplicationController
 
     respond_to do |format|
       if @externaltraining.save
-        format.html { redirect_to @externaltraining, notice: 'Externaltraining was successfully created.' }
+        format.html { redirect_to @externaltraining, notice: 'External training was successfully created.' }
         format.json { render json: @externaltraining, status: :created, location: @externaltraining }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class ExternaltrainingsController < ApplicationController
 
     respond_to do |format|
       if @externaltraining.update_attributes(params[:externaltraining])
-        format.html { redirect_to @externaltraining, notice: 'Externaltraining was successfully updated.' }
+        format.html { redirect_to @externaltraining, notice: 'External training was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
