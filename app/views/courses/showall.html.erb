@@ -13,9 +13,9 @@
 <% if current_user.admin? or current_user.supervisor? %>
 <%= link_to 'New Section', newcoursesection_path( :course_id => @course.id ), class: "btn btn-small btn-primary"%>
 <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-small btn-success"%>
-<%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
+<%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></br></br>
 <%= link_to 'Report', coursereport_url(@course), class: "btn btn-small"%>
-</br></br><%= link_to 'Show Upcoming Sections', course_url, class: "btn btn-small" %>
+<%= link_to 'Show Upcoming Sections', course_url, class: "btn btn-small" %>
 <% end %>
 </h2>
 
@@ -42,7 +42,9 @@
 </aside>
 
 <div class="span8">
-	<br /><br /><br /><br /><br />
+	<br />
+  <h3>List of All Course Sections (Past and Present)</h3>
+  <br /><br />
 <table class="table table-striped">
   <tr>
     <th>Course Section</th>
