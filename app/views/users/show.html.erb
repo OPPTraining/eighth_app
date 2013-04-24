@@ -24,8 +24,8 @@
       <% if @user.attendances.any? %>
         <% @user.attendances.sort {|a,b| a.coursesection.coursesectiondate <=> b.coursesection.coursesectiondate }.each do |attendance| %>
             <tr>
-              <td><%= attendance.coursesection.course.coursename %></td>
-              <td><%= attendance.coursesection_id %></td>
+              <td><%= link_to attendance.coursesection.course.coursename, courseshow_url(attendance.coursesection.course.id) %></td>
+              <td><%= link_to attendance.coursesection_id, coursesectionshow_url(attendance.coursesection.id) %></td>
               <td><%= attendance.coursesection.location %></td>
               <td><%= attendance.coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
               <td><%= attendance.coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
