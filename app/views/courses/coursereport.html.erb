@@ -21,12 +21,17 @@
   <%= @course.coursedescription %>
 </p>
 
-
-
+<p> <b>Tag(s): </b>
 <% @course.tags.any? %>
   <% @course.tags.each do |tag| %>
   <%= link_to tag.name, tagged_url(:tag => tag.name) %>
 <% end %>
+</p>
+
+<p>
+ <b> Download Report:</b>
+  <%= link_to "Excel", coursereport_url(@course.id, format: "xls" ) %>
+</p>
 
 	<br /><br /><br /><br /><br />
 <table class="table table-striped">

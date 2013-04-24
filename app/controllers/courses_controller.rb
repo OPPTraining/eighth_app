@@ -17,11 +17,13 @@ end
     else
 
       @courses = Course.all
-end
+    end
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @courses }
+      format.csv { send_data text: @courses.to_csv}
+      format.xls #{ send_data text: @courses.to_csv(col_sep: "\t") }
     end
   end
 

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">User ID</Data></Cell>
+        <Cell><Data ss:Type="String">User Name</Data></Cell>
+        <Cell><Data ss:Type="String">Course Section</Data></Cell>
+        <Cell><Data ss:Type="String">Attended?</Data></Cell>
+      </Row>
+      <% @course.coursesections.sort {|a,b| a.coursesectiondate <=> b.coursesectiondate }.each do |coursesection| %>
+      <% coursesection.attendances.each do |attendance| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= attendance.user.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= attendance.user.name %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= attendance.coursesection.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= attendance.didattend? %> </Data></Cell>
+      </Row>
+      <% end %>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
