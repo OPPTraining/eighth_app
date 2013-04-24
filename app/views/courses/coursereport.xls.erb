@@ -26,11 +26,11 @@
       <Row>
         <Cell ss:StyleID="header"><Data ss:Type="String" ><%= @course.coursename %> Report</Data></Cell>
       </Row>
-      <Row ss:StyleID="wrapcenterheader">
-        <Cell><Data ss:Type="String">User ID</Data></Cell>
-        <Cell><Data ss:Type="String">User Name</Data></Cell>
-        <Cell><Data ss:Type="String">Course Section</Data></Cell>
-        <Cell><Data ss:Type="String">Attended?</Data></Cell>
+      <Row>
+        <Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">User ID</Data></Cell>
+        <Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">User Name</Data></Cell>
+        <Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Course Section</Data></Cell>
+        <Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Attended?</Data></Cell>
       </Row>
       <% @course.coursesections.sort {|a,b| a.coursesectiondate <=> b.coursesectiondate }.each do |coursesection| %>
       <% coursesection.attendances.each do |attendance| %>

@@ -28,13 +28,13 @@
       <Row>
         <Cell ss:StyleID="header"><Data ss:Type="String" ><%= @user.name %> Report</Data></Cell>
       </Row>
-      <Row ss:StyleID="wrapcenterheader">
-        <Cell><Data ss:Type="String">Course Name</Data></Cell>
-        <Cell><Data ss:Type="String">Course Section</Data></Cell>
-        <Cell><Data ss:Type="String">Location</Data></Cell>
-        <Cell><Data ss:Type="String">Course Date</Data></Cell>
-        <Cell><Data ss:Type="String">Course Time</Data></Cell>
-        <Cell><Data ss:Type="String">Attended?</Data></Cell>
+      <Row>
+        <Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Course Name</Data></Cell>
+        <Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Course Section</Data></Cell>
+        <Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Location</Data></Cell>
+        <Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Course Date</Data></Cell>
+        <Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Course Time</Data></Cell>
+        <Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Attended?</Data></Cell>
       </Row>
       <% if @user.attendances.any? %>
         <% @user.attendances.sort {|a,b| a.coursesection.coursesectiondate <=> b.coursesection.coursesectiondate }.each do |attendance| %>

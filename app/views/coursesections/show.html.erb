@@ -55,11 +55,13 @@
 <br />
 
   <% if @coursesections.evaluations.where(:user_id => current_user.id).any? %>
+  </br><p>You have already evaluated this course!</p>
+  <% else %>
     <%= link_to 'Evaluate', newevaluation_path( :coursesection_id => @coursesections.id ), class: "btn btn-small" %>
   <% end %>
 
   <% if @coursesections.attendances.where(:user_id => current_user.id).any? %>
-    </br></br><p>You are already Signed Up!</p>
+    </br><p>You are already Signed Up!</p>
   <% else %>
     <%= link_to 'Sign Up', new_attendance_path( :coursesection_id => @coursesections.id ), class: "btn btn-small btn-primary" %>
   <% end %>

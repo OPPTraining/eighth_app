@@ -32,17 +32,17 @@
    	  <Row>
    	  	<Cell ss:StyleID="header"><Data ss:Type="String" ><%= @coursesection.course.coursename %> Section <%= @coursesection.id %> Report</Data></Cell>
       </Row>
-      <Row  ss:StyleID="wrapcenterheader">
-      	<Cell><Data ss:Type="String">User</Data></Cell>
-      	<Cell><Data ss:Type="String">Course ID</Data></Cell>
-      	<Cell><Data ss:Type="String">Facilitator's Expertise</Data></Cell>
-      	<Cell><Data ss:Type="String">Clarity</Data></Cell>
-      	<Cell><Data ss:Type="String">Time Management</Data></Cell>
-      	<Cell><Data ss:Type="String">Relevance</Data></Cell>
-      	<Cell><Data ss:Type="String">What will you do differently in your professional setting as a result of this training?</Data></Cell>
-      	<Cell><Data ss:Type="String">What do you feel were the strengths of this training?</Data></Cell>
-      	<Cell><Data ss:Type="String">What do you feel were the weaknesses of the training?</Data></Cell>
-      	<Cell><Data ss:Type="String">Reflective summary- Please outline key learning objectives from the attended training.</Data></Cell>
+      <Row>
+      	<Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">User</Data></Cell>
+      	<Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Course ID</Data></Cell>
+      	<Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Facilitator's Expertise</Data></Cell>
+      	<Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Clarity</Data></Cell>
+      	<Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Time Management</Data></Cell>
+      	<Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Relevance</Data></Cell>
+      	<Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">What will you do differently in your professional setting as a result of this training?</Data></Cell>
+      	<Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">What do you feel were the strengths of this training?</Data></Cell>
+      	<Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">What do you feel were the weaknesses of the training?</Data></Cell>
+      	<Cell ss:StyleID="wrapcenterheader"><Data ss:Type="String">Reflective summary- Please outline key learning objectives from the attended training.</Data></Cell>
       </Row>
       <% @coursesection.evaluations.each do |evaluation| %>
       <Row  ss:StyleID="wrapcenter">
