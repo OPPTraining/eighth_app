@@ -16,8 +16,8 @@ class Coursesection < ActiveRecord::Base
   attr_accessible :coursesectiondate, :duration, :location, :course_id, :id, :facilitator
   belongs_to :course
 
-  has_many :attendances
-  has_many :evaluations
+  has_many :attendances, dependent: :destroy
+  has_many :evaluations, dependent: :destroy
   
 
   validates :course_id, presence: true

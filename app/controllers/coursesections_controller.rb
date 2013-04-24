@@ -106,7 +106,7 @@ class CoursesectionsController < ApplicationController
     @coursesection.destroy
 
     respond_to do |format|
-      format.html { redirect_to coursesections_url }
+      format.html { redirect_to courseshow_url(@coursesection.course.id), notice: 'Course Section was successfully removed.' }
       format.json { head :no_content }
     end
   end

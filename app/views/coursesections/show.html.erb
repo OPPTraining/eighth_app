@@ -63,9 +63,10 @@
   <% else %>
     <%= link_to 'Sign Up', new_attendance_path( :coursesection_id => @coursesections.id ), class: "btn btn-small btn-primary" %>
   <% end %>
+  <br /><br/>
 
 <% if current_user.admin? or current_user.supervisor? %>
-<br />
+
 
 <%= link_to 'Attendance', attendances_path( :coursesection_id => @coursesections.id ), class: "btn btn-small"%>
 <%= link_to 'Edit', edit_coursesection_path, class: "btn btn-small btn-success"%>
