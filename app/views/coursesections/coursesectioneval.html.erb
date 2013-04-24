@@ -12,8 +12,7 @@
 	<table class = "table table-bordered table-hover">
 	  <tr>
 	    <th>User</th>
-        <th>Course</th>
-	    <th>CourseSection</th>
+        <th>Course ID</th>
 	    <th>Q1</th>
 	    <th>Q2</th>
 	    <th>Q3</th>
@@ -29,9 +28,8 @@
 
 	<% @coursesection.evaluations.each do |evaluation| %>
   	  <tr>
-    	<td><%= evaluation.user_id %></td>
+    	<td><%= evaluation.user.name %></td>
       	<td><%= evaluation.coursesection.course_id %></td>
-    	<td><%= evaluation.coursesection_id %></td>
     	<td><%= evaluation.Q1 %></td>
     	<td><%= evaluation.Q2 %></td>
     	<td><%= evaluation.Q3 %></td>
@@ -40,12 +38,13 @@
     	<td><%= truncate(evaluation.Q6, :length => 15) %></td>
     	<td><%= truncate(evaluation.Q7, :length => 15) %></td>
     	<td><%= truncate(evaluation.Q8, :length => 15) %></td>
-    	<td><%= link_to 'Show', evaluation %></td>
-    	<td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
-    	<td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    	<td><%= link_to 'Show', evaluation, class: "btn btn-small" %></td>
+    	<td><%= link_to 'Edit', edit_evaluation_path(evaluation), class: "btn btn-small btn-success" %></td>
+    	<td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
  	  </tr>
 	<% end %>
 	</table>
 <% end %>
 
-<%= link_to 'Back', coursesections_path, class: "btn btn-small" %>
+<%= link_to 'Back', coursesections_path, class: "btn" %>
+<%= link_to 'Download Report', coursesectioneval_url(@coursesection.id, format: "xls" ), class: "btn btn-success" %>

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <ss:Styles>
+  	<ss:Style ss:ID="header">
+  		<ss:Font ss:Bold="1" ss:Size="25"/>
+  	</ss:Style>
+  	<ss:Style ss:ID="wrapcenter">
+  		<ss:Alignment ss:WrapText="1" ss:Vertical="Center"/>
+  	</ss:Style>
+  	<ss:Style ss:ID="wrapcenterheader">
+  		<ss:Alignment ss:WrapText="1" ss:Vertical="Center"/>
+  		<ss:Interior ss:Pattern="Solid" ss:Color="#86abd9"/>
+  		<ss:Font ss:Bold="1"/>
+  	</ss:Style>
+  </ss:Styles>
+  <Worksheet ss:Name="Course Section Evaluations">
+    <Table>
+      <Column ss:Index="1" ss:Width="72"/>
+      <Column ss:Index="2" ss:Width="72"/>
+      <Column ss:Index="3" ss:Width="72"/>
+      <Column ss:Index="4" ss:Width="72"/>
+      <Column ss:Index="5" ss:Width="72"/>
+      <Column ss:Index="6" ss:Width="72"/>
+      <Column ss:Index="7" ss:Width="150"/>
+      <Column ss:Index="8" ss:Width="150"/>
+      <Column ss:Index="9" ss:Width="150"/>
+   	  <Column ss:Index="10" ss:Width="150"/>
+   	  <Row>
+   	  	<Cell ss:StyleID="header"><Data ss:Type="String" ><%= @coursesection.course.coursename %> Section <%= @coursesection.id %> Report</Data></Cell>
+      </Row>
+      <Row  ss:StyleID="wrapcenterheader">
+      	<Cell><Data ss:Type="String">User</Data></Cell>
+      	<Cell><Data ss:Type="String">Course ID</Data></Cell>
+      	<Cell><Data ss:Type="String">Facilitator's Expertise</Data></Cell>
+      	<Cell><Data ss:Type="String">Clarity</Data></Cell>
+      	<Cell><Data ss:Type="String">Time Management</Data></Cell>
+      	<Cell><Data ss:Type="String">Relevance</Data></Cell>
+      	<Cell><Data ss:Type="String">What will you do differently in your professional setting as a result of this training?</Data></Cell>
+      	<Cell><Data ss:Type="String">What do you feel were the strengths of this training?</Data></Cell>
+      	<Cell><Data ss:Type="String">What do you feel were the weaknesses of the training?</Data></Cell>
+      	<Cell><Data ss:Type="String">Reflective summary- Please outline key learning objectives from the attended training.</Data></Cell>
+      </Row>
+      <% @coursesection.evaluations.each do |evaluation| %>
+      <Row  ss:StyleID="wrapcenter">
+      	<Cell><Data ss:Type="String"><%= evaluation.user.name %></Data></Cell>
+      	<Cell><Data ss:Type="Number"><%= evaluation.coursesection.course_id %></Data></Cell>
+      	<Cell><Data ss:Type="Number"><%= evaluation.Q1 %></Data></Cell>
+      	<Cell><Data ss:Type="Number"><%= evaluation.Q2 %></Data></Cell>
+      	<Cell><Data ss:Type="Number"><%= evaluation.Q3 %></Data></Cell>
+      	<Cell><Data ss:Type="Number"><%= evaluation.Q4 %></Data></Cell>
+      	<Cell><Data ss:Type="String"><%= evaluation.Q5 %></Data></Cell>
+      	<Cell><Data ss:Type="String"><%= evaluation.Q6 %></Data></Cell>
+      	<Cell><Data ss:Type="String"><%= evaluation.Q7 %></Data></Cell>
+      	<Cell><Data ss:Type="String"><%= evaluation.Q8 %></Data></Cell>
+      </Row>
+      <% end %>
+  </Table>
+</Worksheet>
+</Workbook>

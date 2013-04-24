@@ -24,4 +24,14 @@ class Coursesection < ActiveRecord::Base
   validates :coursesectiondate, presence: true
   validates :duration, presence: true
   validates :location, presence: true
+
+  def self.to_csv(options = {})
+  	 CSV.generate(options) do |csv|
+  	 	csv << column_names
+  	 	all.each do |course|
+  	 		csv << course.attributes.values_at(*column_names)
+  	 	end
+  	 end
+  end
+  
 end
