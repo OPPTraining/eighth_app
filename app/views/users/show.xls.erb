@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <ss:Styles>
+    <ss:Style ss:ID="header">
+      <ss:Font ss:Bold="1" ss:Size="25"/>
+    </ss:Style>
+    <ss:Style ss:ID="wrapcenter">
+      <ss:Alignment ss:WrapText="1" ss:Vertical="Center"/>
+    </ss:Style>
+    <ss:Style ss:ID="wrapcenterheader">
+      <ss:Alignment ss:WrapText="1" ss:Vertical="Center"/>
+      <ss:Interior ss:Pattern="Solid" ss:Color="#86abd9"/>
+      <ss:Font ss:Bold="1"/>
+    </ss:Style>
+  </ss:Styles>
+  <Worksheet ss:Name="User Report">
+    <Table>
+      <Column ss:Index="1" ss:Width="72"/>
+      <Column ss:Index="2" ss:Width="72"/>
+      <Column ss:Index="3" ss:Width="72"/>
+      <Column ss:Index="4" ss:Width="72"/>
+      <Column ss:Index="5" ss:Width="72"/>
+      <Column ss:Index="6" ss:Width="72"/>
+      <Row>
+        <Cell ss:StyleID="header"><Data ss:Type="String" ><%= @user.name %> Report</Data></Cell>
+      </Row>
+      <Row ss:StyleID="wrapcenterheader">
+        <Cell><Data ss:Type="String">Course Name</Data></Cell>
+        <Cell><Data ss:Type="String">Course Section</Data></Cell>
+        <Cell><Data ss:Type="String">Location</Data></Cell>
+        <Cell><Data ss:Type="String">Course Date</Data></Cell>
+        <Cell><Data ss:Type="String">Course Time</Data></Cell>
+        <Cell><Data ss:Type="String">Attended?</Data></Cell>
+      </Row>
+      <% if @user.attendances.any? %>
+        <% @user.attendances.sort {|a,b| a.coursesection.coursesectiondate <=> b.coursesection.coursesectiondate }.each do |attendance| %>
+      <Row ss:StyleID="wrapcenter">
+        <Cell><Data ss:Type="String"><%= attendance.coursesection.course.coursename %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= attendance.coursesection_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= attendance.coursesection.location %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= attendance.coursesection.coursesectiondate.strftime("%m/%d/%Y") %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= attendance.coursesection.coursesectiondate.strftime("%I:%M%p") %></Data></Cell>
+        <Cell><Data ss:Type="String"><% if attendance.coursesection.coursesectiondate < Date.current %>
+                  <% attendance.didattend? %>
+                  <% else %> N/A
+                  <% end %></Data></Cell>
+      </Row>
+      <% end %>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

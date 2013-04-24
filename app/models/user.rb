@@ -54,6 +54,15 @@ class User < ActiveRecord::Base
     relationships.find_by_followed_id(other_user.id).destroy
   end
 
+  def self.to_csv(options = {})
+     CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |course|
+        csv << course.attributes.values_at(*column_names)
+      end
+     end
+  end
+
   def self.search(search)
   if search
     where('name LIKE ?', "%#{search}%")
