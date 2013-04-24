@@ -29,8 +29,7 @@
 </p>
 
 <p>
- <b> Download Report:</b>
-  <%= link_to "Excel", coursereport_url(@course.id, format: "xls" ) %>
+  <%= link_to "Download Report", coursereport_url(@course.id, format: "xls" ), class: "btn btn-success" %>
 </p>
 
 	<br /><br /><br /><br /><br />
