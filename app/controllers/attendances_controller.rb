@@ -85,7 +85,7 @@ class AttendancesController < ApplicationController
     respond_to do |format|
       UserMailer.removed_user(@attendance.user.email, @attendance.coursesection_id, 
         @attendance.coursesection.course.coursename, @attendance.coursesection.coursesectiondate, @attendance.coursesection.location).deliver
-      format.html { redirect_to attendances_url }
+      format.html { redirect_to attendances_url( :coursesection_id => @attendance.coursesection_id) }
       format.json { head :no_content }
     end
   end
