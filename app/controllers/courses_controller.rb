@@ -38,6 +38,15 @@ end
     end
   end
 
+  def showall
+    @course = Course.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @course }
+    end
+  end
+
   # GET /courses/new
   # GET /courses/new.json
   def new

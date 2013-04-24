@@ -15,6 +15,7 @@
 <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-small btn-success"%>
 <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
 <%= link_to 'Report', coursereport_url(@course), class: "btn btn-small"%>
+<%= link_to 'Show All Sections', showall_url(@course), class: "btn btn-small" %>
 <% end %>
 </h2>
 
@@ -64,7 +65,7 @@
       <td><%= coursesection.coursesectiondate.strftime("%m/%d/%Y") %></td>
       <td><%= coursesection.coursesectiondate.strftime("%I:%M%p") %></td>
       <td><%= link_to 'More Information', coursesection, class: "btn btn-small" %></td>
-      <% if coursesection.attendances.where(:user_id == current_user.id).any? %>
+      <% if coursesection.attendances.where( :user_id => current_user.id ).any? %>
       <td></td>
       <% else %>
       <td><%= link_to 'Sign Up', new_attendance_path( :coursesection_id => coursesection.id ), class: "btn btn-small btn-primary" %></td>
