@@ -1,4 +1,4 @@
-<% if current_user.admin? %>
+<% if current_user.admin? or current_user.supervisor? %>
 <h1>Editing Course</h1>
 
 <%= render 'formedit' %>

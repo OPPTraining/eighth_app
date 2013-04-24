@@ -20,8 +20,11 @@
     <th></th>
     <th></th>
     <th></th>
+    <% if current_user.admin? or current_user.supervisor? %>
     <th>Tags</th>
+    <% end %>
     <% if !current_user.admin? and !current_user.supervisor? %>
+    <th></th>
     <th>Tags</th>
     <% end %>
   </tr>
@@ -32,7 +35,7 @@
     <td><%= truncate(course.coursedescription, :length => 50) %></td>
     <td><%= link_to 'More Information', course, class: "btn btn-small" %></td>
     <td>
-      <% if current_user.admin? %>
+      <% if current_user.admin? or current_user.supervisor? %>
       <%= link_to 'Edit', edit_course_path(course), class: "btn btn-small btn-success" %></td>
       <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
       <% else %>
