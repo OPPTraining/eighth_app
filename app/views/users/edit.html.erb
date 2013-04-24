@@ -45,10 +45,10 @@
       <% elsif current_user.supervisor? %>
       
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :disabled => true %>
 
       <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, :disabled => true %>
 
       <%= f.label :password, "Enter New Password" %>
       <%= f.password_field :password %>
