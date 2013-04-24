@@ -21,11 +21,11 @@
     <th></th>
     <th></th>
     <% if current_user.admin? or current_user.supervisor? %>
-    <th>Tags</th>
+    <th>Tag(s)</th>
     <% end %>
     <% if !current_user.admin? and !current_user.supervisor? %>
     <th></th>
-    <th>Tags</th>
+    <th>Tag(s)</th>
     <% end %>
   </tr>
 
