@@ -52,6 +52,13 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @user }
+      format.csv { send_data text: @user.to_csv}
+      format.xls #{ send_data text: @courses.to_csv(col_sep: "\t") }
+    end
   end
 
   def following

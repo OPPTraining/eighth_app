@@ -9,6 +9,11 @@
     <section>
       <%= render 'shared/stats' %>
     </section>
+    <% if current_user.admin? or current_user.supervisor? %>
+    <section>
+      <%= link_to "Download Report", user_url( format: "xls" ), class: "btn btn-success" %>
+    </section>
+    <% end %>
   </aside>
   <div class="span8">
     
