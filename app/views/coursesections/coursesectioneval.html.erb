@@ -7,6 +7,11 @@
   <b><%= @coursesection.course.coursename %> Section <%= @coursesection.id %></b>
 </h2>
 </p>
+<p> <%= link_to 'Question 5', coursesectioneval5_url, class: "btn btn-small"%>
+	<%= link_to 'Question 6', coursesectioneval6_url, class: "btn btn-small"%>
+  <%= link_to 'Question 7', coursesectioneval7_url, class: "btn btn-small"%>
+  <%= link_to 'Question 8', coursesectioneval8_url, class: "btn btn-small"%>
+</p>
 
 <% if @coursesection.evaluations.any? %>
 	<table class = "table table-bordered table-hover">
@@ -46,5 +51,5 @@
 	</table>
 <% end %>
 
-<%= link_to 'Back', coursesections_path, class: "btn" %>
+<%= link_to 'Back', coursesection_url, class: "btn" %>
 <%= link_to 'Download Report', coursesectioneval_url(@coursesection.id, format: "xls" ), class: "btn btn-success" %>
