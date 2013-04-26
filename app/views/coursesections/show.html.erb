@@ -54,10 +54,12 @@
 
 <br />
 
-  <% if @coursesections.evaluations.where(:user_id => current_user.id).any? %>
-  </br><p>You have already evaluated this course!</p>
-  <% else %>
-    <%= link_to 'Evaluate', newevaluation_path( :coursesection_id => @coursesections.id ), class: "btn btn-small" %>
+  <% if @coursesections.coursesectiondate <= Date.current %>
+    <% if @coursesections.evaluations.where(:user_id => current_user.id).any? %>
+    </br><p>You have already evaluated this course!</p>
+    <% else %>
+      <%= link_to 'Evaluate', newevaluation_path( :coursesection_id => @coursesections.id ), class: "btn btn-small" %>
+    <% end %>
   <% end %>
 
   <% if @coursesections.attendances.where(:user_id => current_user.id).any? %>
