@@ -11,7 +11,7 @@
 <div class="span6 offset3">
 <p>
   <b>Course Name:</b>
-  <%= link_to @coursesections.course.coursename, courseshow_url(@coursesections.course.id) %>
+  <%= @coursesections.course.coursename %>
 </p>
 
 <p>
@@ -58,7 +58,11 @@
     <% if @coursesections.evaluations.where(:user_id => current_user.id).any? %>
     </br><p>You have already evaluated this course!</p>
     <% else %>
-      <%= link_to 'Evaluate', newevaluation_path( :coursesection_id => @coursesections.id ), class: "btn btn-small" %>
+      <% if @coursesections.attendances.where(:user_id => current_user.id).any? %>
+        <%= link_to 'Evaluate', newevaluation_path( :coursesection_id => @coursesections.id ), class: "btn btn-small" %>
+      <% else %>
+        You did not enroll in this course
+      <% end %>
     <% end %>
   <% end %>
 
