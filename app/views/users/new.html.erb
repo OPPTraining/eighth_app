@@ -1,3 +1,8 @@
+<% if !signed_in? %>
+<h1> Admin Access Required </h1>
+<% elsif !current_user.admin? %>
+<h1> Admin Access Required </h1>
+<% else %>
 <% provide(:title, 'Add New User') %>
 <h1>Add New User</h1>
 
@@ -29,3 +34,4 @@
     <% end %>
   </div>
 </div>
+<%end%>
