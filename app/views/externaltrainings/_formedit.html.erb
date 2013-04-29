@@ -21,18 +21,15 @@
     <%= f.label :facilitator %>
     <%= f.text_field :facilitator %>
   </div>
-
-  <%= f.label :date %>
-  <%= datetime_picker_input "externaldate",:date, :dateFormat => "yy-mm-dd" %>
-
-
-  <div class="field">
-    <%= f.label :duration, "Duration (in minutes)" %>
-    <%= f.number_field :duration, class: "input-mini" %>
-  </div>
   <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description, :rows => "4" %>
+  </div>
+  <%= f.label :date %>
+  <%= datetime_picker_input "externaldate",:date, :dateFormat => "yy-mm-dd" %>
+  <div class="field">
+    <%= f.label :duration, "Duration (in minutes)" %>
+    <%= f.number_field :duration, class: "input-mini" %>
   </div>
   <div class="field">
       <%= f.file_field :externalresource %>
