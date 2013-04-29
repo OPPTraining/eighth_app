@@ -13,7 +13,7 @@
 
       <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
     <% end %>
-    <% if User.exists? %>
+    <% if User.any? %>
       <p></p>
     <% else %>
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
