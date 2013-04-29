@@ -56,6 +56,6 @@
 </table>
 
 <br />
-<% if current_user.admin? %>
+<% if current_user.admin? or current_user.supervisor? %>
 <%= link_to 'Add New Course', new_course_path, class: "btn btn-small btn-primary" %>
 <% end %>
